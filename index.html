@@ -1,0 +1,1592 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Doris in Social Media — Marka osobista, której się nie zapomina</title>
+<meta name="description" content="Doris Maklewska — mentoring, strategia i realne wyniki w LinkedIn, Instagram i video. Bądź sobą online, bo wszyscy inni są już zajęci." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ================================================================
+   DORIS — Editorial pastel brand system
+   ================================================================ */
+
+:root{
+  --cream:        #F7EADD;
+  --cream-deep:  #F2DDC9;
+  --blush:       #F6C9C1;
+  --blush-2:     #FAD9D2;
+  --peach:       #F4A261;
+  --pink-hot:    #FF3D7F;
+  --pink-ink:    #E02B66;
+  --plum:        #2B1624;
+  --plum-soft:   #45212F;
+  --ink:         #1A0B12;
+  --lime:        #D4FF3F;
+  --paper:       #FFF9F1;
+  --rule:        rgba(43,22,36,.14);
+
+  --f-serif: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --f-sans:  "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --f-mono:  "JetBrains Mono", ui-monospace, monospace;
+
+  --edge: clamp(18px, 3vw, 40px);
+  --col:  minmax(0, 1fr);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background: var(--cream);
+  color: var(--plum);
+  font-family: var(--f-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "ss01","ss02","cv11";
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,svg{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+
+/* ---------- grain + paper ---------- */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index:100;
+  opacity:.35;
+  mix-blend-mode:multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.17  0 0 0 0 0.09  0 0 0 0 0.14  0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* soft vignette so the cream has depth */
+body::after{
+  content:"";
+  position:fixed; inset:-1px;
+  pointer-events:none; z-index:99;
+  background: radial-gradient(1200px 600px at 20% -5%, rgba(246,201,193,.55), transparent 60%),
+              radial-gradient(1200px 700px at 95% 10%, rgba(255,61,127,.08), transparent 55%);
+}
+
+::selection{ background: var(--pink-hot); color: var(--paper); }
+
+/* ================================================================
+   Layout helpers
+   ================================================================ */
+.wrap{
+  width: min(1320px, 100% - calc(var(--edge)*2));
+  margin-inline: auto;
+}
+.row{ display:grid; gap: clamp(16px, 2vw, 28px); }
+
+/* ================================================================
+   Top utility bar
+   ================================================================ */
+.topbar{
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.topbar .wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  height: 38px;
+}
+.topbar .dot{
+  width:8px; height:8px; border-radius:50%;
+  background: var(--pink-hot);
+  display:inline-block; vertical-align:middle; margin-right:8px;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{ box-shadow: 0 0 0 0 rgba(255,61,127,.6);}
+  50%{ box-shadow: 0 0 0 6px rgba(255,61,127,0);}
+}
+.topbar .sep{ opacity:.35; margin:0 10px; }
+
+/* ================================================================
+   Navigation
+   ================================================================ */
+.nav{
+  position: sticky; top: 0; z-index: 40;
+  background: color-mix(in srgb, var(--cream) 88%, transparent);
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  border-bottom: 1px solid var(--rule);
+}
+.nav .wrap{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items:center;
+  gap: 24px;
+  padding: 18px 0;
+}
+.brand{
+  font-family: var(--f-serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  font-variation-settings: "SOFT" 50, "WONK" 1, "opsz" 144;
+  display:flex; align-items:baseline; gap:4px;
+}
+.brand b{ font-style:italic; font-weight:500; color: var(--pink-hot); }
+.brand sup{
+  font-family: var(--f-mono);
+  font-size:9px;
+  letter-spacing:.14em;
+  margin-left:6px;
+  color: var(--plum);
+  opacity:.6;
+}
+.nav ul{
+  list-style:none; padding:0; margin:0;
+  display:flex; justify-content:center; gap: 6px;
+  flex-wrap:wrap;
+}
+.nav a.navlink{
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: .01em;
+  transition: background .2s, color .2s;
+}
+.nav a.navlink:hover{ background: var(--blush); color: var(--pink-ink); }
+
+.cta{
+  display:inline-flex; align-items:center; gap:10px;
+  background: var(--plum);
+  color: var(--paper);
+  padding: 12px 18px 12px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing:.01em;
+  transition: transform .2s, background .2s;
+}
+.cta:hover{ background: var(--pink-hot); transform: translateY(-1px); }
+.cta .arrow{
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--pink-hot);
+  color: var(--paper);
+  display:grid; place-items:center;
+  font-size: 13px;
+  transition: transform .3s;
+}
+.cta:hover .arrow{ background: var(--paper); color: var(--pink-hot); transform: rotate(-45deg); }
+
+.nav-toggle{ display:none; }
+
+/* ================================================================
+   HERO — magazine cover
+   ================================================================ */
+.hero{
+  position: relative;
+  padding: clamp(32px, 5vw, 72px) 0 clamp(40px, 6vw, 100px);
+}
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: stretch;
+}
+.hero-left{ position:relative; display:flex; flex-direction:column; justify-content:space-between; }
+
+.eyebrow{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--plum);
+  opacity: .7;
+  display:inline-flex; align-items:center; gap:10px;
+}
+.eyebrow::before{
+  content:""; width:28px; height:1px; background: var(--plum); opacity:.4;
+}
+
+.hero h1{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(56px, 9.5vw, 168px);
+  line-height: 0.88;
+  letter-spacing: -.035em;
+  margin: 24px 0 0;
+  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 1;
+}
+.hero h1 .line{ display:block; }
+.hero h1 em{
+  font-style: italic;
+  font-weight: 300;
+  color: var(--pink-hot);
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+  position: relative;
+  padding-right: .15em;
+}
+.hero h1 em::after{
+  content:"*";
+  position: absolute;
+  right:-0.18em; top:-0.1em;
+  color: var(--plum);
+  font-size: .35em;
+  font-style:normal;
+  font-weight: 400;
+  animation: spin 14s linear infinite;
+  display:inline-block;
+  transform-origin: 50% 55%;
+}
+@keyframes spin{ to{ transform: rotate(360deg);} }
+
+.hero-tagline{
+  margin-top: 28px;
+  max-width: 32ch;
+  font-size: clamp(16px, 1.2vw, 19px);
+  color: var(--plum-soft);
+  font-family: var(--f-sans);
+  line-height: 1.5;
+}
+.hero-tagline b{
+  background: var(--pink-hot);
+  color: var(--paper);
+  padding: 0 8px;
+  border-radius: 4px;
+  font-weight:500;
+}
+
+.hero-actions{
+  margin-top: clamp(24px, 3vw, 40px);
+  display:flex; flex-wrap:wrap; gap: 14px;
+  align-items: center;
+}
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--plum);
+  background: var(--plum);
+  color: var(--paper);
+  font-size: 15px;
+  letter-spacing: .005em;
+  transition: background .2s, color .2s, transform .2s;
+}
+.btn:hover{ background: var(--pink-hot); border-color: var(--pink-hot); transform: translateY(-1px);}
+.btn.ghost{ background:transparent; color: var(--plum); }
+.btn.ghost:hover{ background: var(--plum); color: var(--paper); }
+.btn .chev{ transition: transform .3s; }
+.btn:hover .chev{ transform: translateX(4px); }
+
+/* hero portrait panel */
+.hero-right{
+  position: relative;
+  min-height: clamp(380px, 50vw, 620px);
+}
+.portrait{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  border-radius: 260px 260px 24px 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(110% 80% at 50% 20%, #FFE2D8 0%, #F5B5A9 42%, #D67F84 78%, #7A3C5A 100%);
+  box-shadow:
+    inset 0 -80px 120px rgba(43,22,36,.25),
+    0 30px 60px -20px rgba(43,22,36,.25);
+}
+.portrait::after{
+  /* subtle texture overlay */
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(60% 40% at 50% 30%, rgba(255,255,255,.18), transparent 60%);
+  mix-blend-mode: screen;
+}
+.portrait-inner{
+  position:absolute; inset:0;
+  display:grid; place-items:end center;
+  padding: 0 10% 0;
+}
+.portrait svg.fig{
+  width: 92%;
+  height: auto;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,.25));
+}
+
+/* floating decorative badge */
+.badge-stamp{
+  position:absolute;
+  bottom: -18px; left: -18px;
+  width: 146px; height: 146px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--plum);
+  display:grid; place-items:center;
+  transform: rotate(-12deg);
+  box-shadow: 0 10px 24px rgba(43,22,36,.18);
+  z-index: 2;
+  animation: bob 5s ease-in-out infinite;
+}
+@keyframes bob{ 0%,100%{ transform: rotate(-12deg) translateY(0);} 50%{ transform: rotate(-12deg) translateY(-6px);} }
+.badge-stamp svg{ position:absolute; inset:0; animation: spin 18s linear infinite; }
+.badge-stamp .core{
+  font-family: var(--f-serif); font-style: italic; font-size: 15px; line-height: 1.1;
+  text-align:center; position:relative; z-index:1; font-weight: 500;
+}
+.badge-stamp .core b{ display:block; font-family: var(--f-sans); font-style:normal; font-size: 18px; margin-top:2px; letter-spacing:-.01em; font-weight:700;}
+
+/* tiny floating chips */
+.chip{
+  position:absolute;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing:.02em;
+  display:inline-flex; align-items:center; gap:8px;
+  box-shadow: 0 8px 20px rgba(43,22,36,.08);
+}
+.chip .bullet{ width:8px; height:8px; border-radius:50%; background: var(--pink-hot);}
+.chip.linkedin{ top: 12%; left: -30px; transform: rotate(-6deg);}
+.chip.ig{ top: 44%; right: -24px; transform: rotate(5deg);}
+.chip.video{ bottom: 14%; left: 40%; transform: rotate(-2deg);}
+
+/* stats strip below hero */
+.stats{
+  margin-top: clamp(32px, 4vw, 56px);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: clamp(22px, 3vw, 34px) 0;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.stat .num{
+  font-family: var(--f-serif);
+  font-weight: 300;
+  font-size: clamp(44px, 5.5vw, 80px);
+  line-height: 1;
+  letter-spacing:-.03em;
+  font-variation-settings:"opsz" 144, "SOFT" 20;
+  display:flex; align-items:baseline; gap:4px;
+}
+.stat .num .plus{ color: var(--pink-hot); font-style:italic; }
+.stat .lbl{
+  margin-top: 8px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .75;
+  max-width: 22ch;
+}
+
+/* ================================================================
+   MARQUEE (tagline band)
+   ================================================================ */
+.marquee{
+  background: var(--pink-hot);
+  color: var(--paper);
+  padding: 20px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--plum);
+  border-bottom: 1px solid var(--plum);
+}
+.marquee-track{
+  display:flex; gap: 48px;
+  white-space: nowrap;
+  animation: scroll 42s linear infinite;
+  will-change: transform;
+}
+.marquee-track span{
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(38px, 5vw, 76px);
+  letter-spacing: -.02em;
+  display:inline-flex; align-items:center; gap: 48px;
+  font-variation-settings:"opsz" 144, "SOFT" 100;
+}
+.marquee-track .star{
+  font-family: var(--f-sans);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.6em;
+  color: var(--cream);
+  display:inline-block;
+  animation: spin 9s linear infinite;
+}
+@keyframes scroll{
+  from{ transform: translateX(0);}
+  to{ transform: translateX(-50%);}
+}
+
+/* ================================================================
+   Section chrome
+   ================================================================ */
+.section{ padding: clamp(72px, 8vw, 130px) 0; position:relative; }
+.sec-head{
+  display:grid; grid-template-columns: .35fr 1fr; gap: clamp(24px, 4vw, 64px);
+  align-items:end;
+  margin-bottom: clamp(36px, 5vw, 72px);
+}
+.sec-id{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  display:flex; flex-direction:column; gap: 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--plum);
+}
+.sec-id b{ font-weight: 600; }
+.sec-title{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(36px, 5.2vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -.03em;
+  margin: 0;
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+}
+.sec-title em{
+  font-style: italic;
+  color: var(--pink-hot);
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+}
+
+/* ================================================================
+   ABOUT — split row with text + image plate
+   ================================================================ */
+.about-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 72px);
+  align-items: start;
+}
+.about-text p{
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.65;
+  color: var(--plum-soft);
+  margin: 0 0 1.2em;
+}
+.about-text p.lead{
+  font-family: var(--f-serif);
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.35;
+  color: var(--plum);
+  font-weight: 350;
+  margin-bottom: 1.4em;
+  font-variation-settings:"opsz" 120, "SOFT" 50;
+}
+.sig{
+  margin-top: 20px;
+  display:flex; align-items:center; gap:12px;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 28px;
+  color: var(--pink-hot);
+  font-variation-settings:"SOFT" 100, "WONK" 1;
+}
+
+.about-media{
+  position: relative;
+  aspect-ratio: 4/5;
+  background: var(--blush);
+  border-radius: 12px;
+  overflow:hidden;
+  box-shadow: 0 30px 60px -20px rgba(43,22,36,.28);
+}
+.about-media .frame{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(60% 70% at 50% 40%, #FAD7CE 0%, #D88D8E 55%, #5C2A3C 100%);
+}
+.about-media .frame::after{
+  content:"";
+  position:absolute; inset:0;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'><circle cx='1' cy='1' r='.6' fill='%23ffffff22'/></svg>");
+  mix-blend-mode: overlay;
+}
+.about-media figcaption{
+  position:absolute;
+  left: 20px; bottom: 20px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing:.2em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(43,22,36,.6);
+  backdrop-filter: blur(6px);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+.about-media .tape{
+  position:absolute; top: -14px; left: 40px;
+  width: 120px; height: 30px;
+  background: rgba(212,255,63,.85);
+  transform: rotate(-4deg);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.about-media .tape.r{ left:auto; right:30px; top:auto; bottom:-14px; transform: rotate(3deg); background: rgba(255,61,127,.85);}
+
+/* ================================================================
+   OFFER / PROGRAMS grid
+   ================================================================ */
+.offer-grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+}
+.card{
+  position: relative;
+  padding: 28px 28px 24px;
+  border-radius: 24px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  display:flex; flex-direction:column; gap: 18px;
+  min-height: 340px;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+  overflow: hidden;
+}
+.card:hover{ transform: translateY(-4px); box-shadow: 0 30px 50px -20px rgba(43,22,36,.22); }
+.card .tag{
+  font-family: var(--f-mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase;
+  color: var(--plum); opacity:.65;
+}
+.card h3{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.05;
+  letter-spacing:-.02em;
+  margin:0;
+  font-variation-settings:"opsz" 120, "SOFT" 40, "WONK" 1;
+}
+.card h3 em{ font-style:italic; color: var(--pink-ink); }
+.card p{
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--plum-soft);
+  max-width: 42ch;
+}
+.card .link{
+  margin-top: auto;
+  display:inline-flex; align-items:center; gap: 10px;
+  font-size: 13px;
+  letter-spacing:.02em;
+  font-weight: 500;
+}
+.card .link .a{
+  width: 34px; height: 34px; border-radius:50%;
+  background: var(--plum); color: var(--paper);
+  display:grid; place-items:center;
+  transition: background .2s, transform .3s;
+}
+.card:hover .link .a{ background: var(--pink-hot); transform: rotate(-45deg);}
+
+.card.feat{
+  grid-column: span 7;
+  background: var(--plum);
+  color: var(--paper);
+  min-height: 420px;
+}
+.card.feat h3{ color: var(--paper); }
+.card.feat h3 em{ color: var(--lime); }
+.card.feat p{ color: color-mix(in srgb, var(--paper) 85%, transparent);}
+.card.feat .tag{ color: color-mix(in srgb, var(--paper) 70%, transparent);}
+.card.feat .link .a{ background: var(--pink-hot); }
+
+.card.a{ grid-column: span 5; background: var(--blush); }
+.card.b{ grid-column: span 4; }
+.card.c{ grid-column: span 4; background: var(--cream-deep); }
+.card.d{ grid-column: span 4; background: var(--paper); }
+
+/* decorative corner glyphs on cards */
+.card .glyph{
+  position:absolute; right: -18px; bottom: -26px;
+  font-family: var(--f-serif); font-style: italic;
+  font-size: 180px; line-height: 1; color: rgba(255,61,127,.12);
+  pointer-events:none;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+.card.feat .glyph{ color: rgba(212,255,63,.08); font-size: 240px; right:-30px; bottom:-60px;}
+
+/* bullet row inside featured */
+.bullets{
+  list-style:none; margin:12px 0 0; padding:0;
+  display:flex; flex-wrap:wrap; gap:8px;
+}
+.bullets li{
+  padding:6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.2);
+  font-size: 12px;
+  font-family: var(--f-mono);
+  letter-spacing: .08em;
+  text-transform:uppercase;
+}
+
+/* ================================================================
+   PRODUCTS
+   ================================================================ */
+.products{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+}
+.product{
+  position:relative;
+  border-radius: 28px;
+  overflow:hidden;
+  min-height: 520px;
+  padding: 36px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  color: var(--paper);
+}
+.product .cover{
+  position:absolute; inset:0; z-index:0;
+}
+.product > *{ position:relative; z-index:1;}
+.product .price{
+  align-self:flex-start;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.24);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.product h3{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(32px, 3.5vw, 56px);
+  line-height:1;
+  letter-spacing:-.02em;
+  margin: 0 0 14px;
+  font-variation-settings:"opsz" 144, "SOFT" 50, "WONK" 1;
+}
+.product h3 em{ font-style: italic; }
+.product p{ max-width: 36ch; font-size: 15px; margin: 0 0 20px; opacity:.88;}
+.product .meta{
+  display:flex; gap: 18px; flex-wrap:wrap;
+  margin-top: 10px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing:.16em;
+  text-transform: uppercase;
+  opacity:.8;
+}
+.product .meta span::before{ content:"// "; opacity:.6;}
+
+.product.ebook .cover{
+  background:
+    radial-gradient(120% 80% at 30% 20%, #FFD1C3 0%, #E56A86 50%, #2B1624 100%);
+}
+.product.ebook .cover::after{
+  content:"";
+  position:absolute; right:-40px; bottom:-40px;
+  width: 380px; height: 520px;
+  background:
+    linear-gradient(150deg, #FFF3E8 0%, #F4A261 40%, #E02B66 100%);
+  border-radius: 8px;
+  transform: rotate(-10deg);
+  box-shadow: 0 40px 80px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.2);
+  background-image:
+    radial-gradient(circle at 50% 30%, rgba(255,255,255,.35), transparent 40%);
+}
+
+.product.course .cover{
+  background:
+    radial-gradient(110% 70% at 70% 30%, #F7C2B4 0%, #8F5269 60%, #1A0B12 100%);
+}
+.product.course .cover::after{
+  content:"▶";
+  position:absolute;
+  right: 8%; bottom: 14%;
+  font-size: 240px;
+  color: rgba(247,234,221,.12);
+  line-height:1;
+}
+
+.product .cta-inline{
+  display:inline-flex; align-items:center; gap: 10px;
+  background: var(--paper);
+  color: var(--plum);
+  padding: 12px 18px 12px 22px;
+  border-radius: 999px;
+  align-self:flex-start;
+  font-size: 14px;
+  transition: transform .2s, background .2s;
+  margin-top: 18px;
+}
+.product .cta-inline:hover{ background: var(--lime); transform: translateY(-1px); }
+.product .cta-inline .arr{
+  width: 26px; height: 26px; border-radius:50%;
+  background: var(--pink-hot); color: var(--paper);
+  display:grid; place-items:center; font-size: 11px;
+  transition: transform .3s;
+}
+.product .cta-inline:hover .arr{ transform: rotate(-45deg);}
+
+/* ================================================================
+   MANIFESTO — editorial quote block
+   ================================================================ */
+.manifesto{
+  padding: clamp(60px, 8vw, 120px) 0;
+  background: var(--plum);
+  color: var(--paper);
+  position: relative;
+  overflow:hidden;
+}
+.manifesto::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(600px 400px at 10% 0%, rgba(255,61,127,.3), transparent 60%),
+    radial-gradient(700px 500px at 100% 100%, rgba(212,255,63,.1), transparent 60%);
+  pointer-events:none;
+}
+.manifesto .wrap{ position:relative; z-index:1;}
+.manifesto blockquote{
+  font-family: var(--f-serif);
+  font-weight: 300;
+  font-size: clamp(34px, 4.8vw, 80px);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+  margin: 0;
+  max-width: 20ch;
+  font-variation-settings:"opsz" 144, "SOFT" 30, "WONK" 1;
+}
+.manifesto blockquote em{
+  font-style: italic;
+  color: var(--pink-hot);
+  font-variation-settings:"opsz" 144, "SOFT" 100, "WONK" 1;
+}
+.manifesto .attribution{
+  margin-top: 32px;
+  display:flex; align-items:center; gap:18px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing:.2em;
+  text-transform: uppercase;
+  opacity:.7;
+}
+.manifesto .attribution .rule{
+  height: 1px; width: 80px; background: currentColor; opacity:.4;
+}
+
+/* ================================================================
+   TESTIMONIALS — stacked polaroid cards
+   ================================================================ */
+.testi{ background: var(--cream-deep); }
+.testi-grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(18px, 2vw, 28px);
+}
+.quote{
+  position:relative;
+  padding: 26px 24px 22px;
+  background: var(--paper);
+  border-radius: 8px;
+  box-shadow: 0 18px 30px -16px rgba(43,22,36,.2);
+  display:flex; flex-direction:column; gap: 14px;
+}
+.quote p{
+  margin:0;
+  font-size: 15px; line-height: 1.55;
+  color: var(--plum);
+}
+.quote .open{
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 70px;
+  line-height: 0;
+  height: 24px;
+  color: var(--pink-hot);
+  font-variation-settings:"SOFT" 100, "WONK" 1;
+}
+.quote .who{
+  display:flex; align-items:center; gap:12px;
+  margin-top: auto;
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+}
+.quote .who .av{
+  width: 42px; height:42px; border-radius:50%;
+  background: linear-gradient(135deg, var(--blush), var(--pink-hot));
+  display:grid; place-items:center;
+  font-family: var(--f-serif); font-weight:500; font-size: 16px;
+  color: var(--paper);
+}
+.quote .who .n{ font-size: 14px; font-weight:500; letter-spacing:-.005em;}
+.quote .who .r{ font-size: 12px; color: var(--plum-soft); opacity:.75; font-family:var(--f-mono); letter-spacing:.08em;}
+
+.quote.q1{ grid-column: span 4; transform: rotate(-1deg);}
+.quote.q2{ grid-column: span 5; background: var(--lime); transform: rotate(.6deg);}
+.quote.q2 .open{ color: var(--plum);}
+.quote.q3{ grid-column: span 3; transform: rotate(.8deg);}
+.quote.q4{ grid-column: span 3; background: var(--blush); transform: rotate(-.5deg);}
+.quote.q5{ grid-column: span 5; transform: rotate(.3deg); }
+.quote.q6{ grid-column: span 4; background: var(--peach); color: var(--plum); transform: rotate(-.8deg); }
+.quote.q6 .open{ color: var(--plum);}
+
+/* ================================================================
+   CLIENTS strip (logos as wordmarks)
+   ================================================================ */
+.clients{ padding: clamp(36px, 5vw, 64px) 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);}
+.clients .lbl{
+  font-family: var(--f-mono); font-size: 11px; letter-spacing:.22em; text-transform: uppercase; opacity:.65;
+  margin-bottom: 22px;
+}
+.logo-row{
+  display:flex; flex-wrap:wrap; align-items: baseline;
+  gap: clamp(20px, 4vw, 64px);
+}
+.logo-row span{
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(22px, 2.4vw, 38px);
+  letter-spacing: -.01em;
+  color: var(--plum);
+  opacity: .78;
+  font-variation-settings:"opsz" 144, "SOFT" 80;
+  transition: color .2s, opacity .2s;
+}
+.logo-row span:nth-child(2n){ font-style: normal; font-weight: 500; letter-spacing: -.03em;}
+.logo-row span:nth-child(3n){ text-transform: uppercase; font-size: .82em; font-family: var(--f-sans); font-weight:700; letter-spacing: .05em;}
+.logo-row span:hover{ color: var(--pink-hot); opacity:1;}
+
+/* ================================================================
+   CTA — newsletter / free consult
+   ================================================================ */
+.cta-big{
+  position: relative;
+  padding: clamp(56px, 7vw, 110px) 0;
+  background: var(--blush);
+  overflow: hidden;
+}
+.cta-big::before{
+  content:"";
+  position:absolute;
+  inset:auto -10% -60% -10%;
+  height: 120%;
+  background: radial-gradient(50% 60% at 50% 0%, rgba(255,61,127,.4), transparent 60%);
+  pointer-events:none;
+}
+.cta-big .wrap{ position:relative; z-index:1;}
+.cta-big h2{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(40px, 6vw, 108px);
+  line-height: .95;
+  letter-spacing:-.035em;
+  margin: 0 0 24px;
+  max-width: 14ch;
+  font-variation-settings:"opsz" 144, "SOFT" 30, "WONK" 1;
+}
+.cta-big h2 em{ font-style: italic; color: var(--pink-hot);}
+.cta-big .row2{
+  display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items:end;
+  margin-top: 24px;
+}
+.cta-big p{ max-width: 42ch; font-size: 17px; color: var(--plum-soft); margin:0 0 18px;}
+.form{
+  display:flex; gap: 10px;
+  background: var(--paper);
+  padding: 8px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  max-width: 520px;
+}
+.form input{
+  flex:1;
+  border: 0; background: transparent;
+  padding: 12px 18px;
+  font: inherit;
+  color: var(--plum);
+  outline: none;
+}
+.form input::placeholder{ color: color-mix(in srgb, var(--plum) 45%, transparent);}
+.form button{
+  background: var(--plum);
+  color: var(--paper);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing:.01em;
+  transition: background .2s;
+}
+.form button:hover{ background: var(--pink-hot);}
+
+.cta-big .tel{
+  display:flex; flex-direction:column; gap: 8px;
+  padding: 24px;
+  background: var(--paper);
+  border-radius: 20px;
+  box-shadow: 0 30px 50px -24px rgba(43,22,36,.22);
+}
+.cta-big .tel .l{ font-family: var(--f-mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; opacity:.7;}
+.cta-big .tel .v{
+  font-family: var(--f-serif); font-size: 32px; font-variation-settings:"opsz" 144, "SOFT" 50;
+  letter-spacing: -.015em;
+  font-weight: 400;
+}
+.cta-big .tel a{ color: var(--pink-ink); font-weight: 600;}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+footer{
+  background: var(--ink);
+  color: color-mix(in srgb, var(--paper) 88%, transparent);
+  padding: clamp(60px, 7vw, 110px) 0 28px;
+  position: relative;
+}
+.foot-grid{
+  display:grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  padding-bottom: 44px;
+}
+footer h4{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing:.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity:.55;
+  margin: 0 0 18px;
+}
+footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;}
+footer ul a{ font-size: 15px; transition: color .2s;}
+footer ul a:hover{ color: var(--pink-hot);}
+.foot-brand{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(40px, 4.5vw, 72px);
+  line-height: .95;
+  letter-spacing:-.03em;
+  margin: 0 0 14px;
+  font-variation-settings:"opsz" 144, "SOFT" 50, "WONK" 1;
+}
+.foot-brand em{ font-style: italic; color: var(--pink-hot);}
+.foot-about{ max-width: 34ch; font-size: 15px; opacity:.7; margin: 0 0 18px;}
+.socials{ display:flex; gap: 8px;}
+.socials a{
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  display:grid; place-items:center;
+  transition: background .2s, transform .2s;
+  font-size: 14px;
+  font-family: var(--f-mono);
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.socials a:hover{ background: var(--pink-hot); transform: translateY(-2px);}
+
+.colophon{
+  display:flex; justify-content:space-between;
+  margin-top: 28px;
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  opacity: .5; flex-wrap:wrap; gap: 12px;
+}
+
+/* giant footer wordmark */
+.footermark{
+  font-family: var(--f-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(120px, 24vw, 360px);
+  line-height: .8;
+  letter-spacing: -.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.12);
+  text-align: center;
+  margin: 40px 0 -20px;
+  font-variation-settings:"opsz" 144, "SOFT" 100, "WONK" 1;
+  user-select:none;
+  pointer-events:none;
+}
+
+/* ================================================================
+   Reveal-on-scroll
+   ================================================================ */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1);
+  transition-delay: var(--delay, 0ms);
+}
+[data-reveal].in{ opacity:1; transform: translateY(0); }
+
+/* ================================================================
+   Responsive
+   ================================================================ */
+@media (max-width: 980px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .hero-right{ order:-1; min-height: 420px; }
+  .hero h1{ font-size: clamp(52px, 14vw, 120px); }
+  .stats{ grid-template-columns: repeat(2, 1fr);}
+  .sec-head{ grid-template-columns: 1fr; gap: 18px;}
+  .about-grid{ grid-template-columns: 1fr;}
+  .products{ grid-template-columns: 1fr;}
+  .offer-grid{ grid-template-columns: repeat(6,1fr);}
+  .card.feat,.card.a,.card.b,.card.c,.card.d{ grid-column: span 6;}
+  .testi-grid{ grid-template-columns: repeat(6,1fr);}
+  .quote.q1,.quote.q5,.quote.q6{ grid-column: span 6;}
+  .quote.q2,.quote.q3,.quote.q4{ grid-column: span 3;}
+  .cta-big .row2{ grid-template-columns: 1fr;}
+  .foot-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px){
+  .nav ul{ display:none;}
+  .nav-toggle{ display:inline-flex;}
+  .hero-tagline{ font-size: 16px;}
+  .testi-grid .quote{ grid-column: span 6 !important; }
+  .foot-grid{ grid-template-columns: 1fr; }
+  .colophon{ justify-content: flex-start;}
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .marquee-track{ animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== topbar ========== -->
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="dot"></span> Przyjmuję nowe projekty — jesień 2026</div>
+    <div>
+      <span>Warszawa, PL</span>
+      <span class="sep">//</span>
+      <span id="clock">—</span>
+      <span class="sep">//</span>
+      <span>PL / EN</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== nav ========== -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#" class="brand">
+      doris<b>*</b>in social media <sup>est. 2015</sup>
+    </a>
+    <nav>
+      <ul>
+        <li><a class="navlink" href="#o-mnie">O mnie</a></li>
+        <li><a class="navlink" href="#oferta">Oferta</a></li>
+        <li><a class="navlink" href="#produkty">Produkty</a></li>
+        <li><a class="navlink" href="#opinie">Opinie</a></li>
+        <li><a class="navlink" href="#blog">Dziennik</a></li>
+        <li><a class="navlink" href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a href="#kontakt" class="cta">
+      Darmowa konsultacja <span class="arrow">↗</span>
+    </a>
+  </div>
+</header>
+
+<!-- ========== hero ========== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div data-reveal>
+          <span class="eyebrow">No. 01 — Marka osobista · Strategia · Video</span>
+          <h1 data-reveal style="--delay:120ms">
+            <span class="line">Cześć,</span>
+            <span class="line">jestem <em>Doris</em></span>
+          </h1>
+          <p class="hero-tagline" data-reveal style="--delay:260ms">
+            Od dekady pomagam ekspertkom, przedsiębiorcom i firmom budować marki, które ludzie
+            <b>zapamiętują</b> — w LinkedIn, Instagramie i pionowym video. Bez pozowania,
+            bez kopiowania trendów, bez pustych lajków.
+          </p>
+        </div>
+
+        <div class="hero-actions" data-reveal style="--delay:380ms">
+          <a href="#oferta" class="btn">Zobacz ofertę <span class="chev">→</span></a>
+          <a href="#kontakt" class="btn ghost">15 min · bezpłatnie</a>
+        </div>
+      </div>
+
+      <div class="hero-right" data-reveal style="--delay:160ms">
+        <div class="portrait">
+          <!-- abstract portrait silhouette -->
+          <div class="portrait-inner">
+            <svg class="fig" viewBox="0 0 600 720" aria-hidden="true">
+              <defs>
+                <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2B1624"/>
+                  <stop offset="100%" stop-color="#5B2A3B"/>
+                </linearGradient>
+                <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#F8D4C8"/>
+                  <stop offset="100%" stop-color="#D69E94"/>
+                </linearGradient>
+                <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FFF3E8"/>
+                  <stop offset="100%" stop-color="#F4C7BC"/>
+                </linearGradient>
+              </defs>
+              <!-- shoulders / torso -->
+              <path d="M60 720 C 100 560 190 500 300 500 C 410 500 500 560 540 720 Z" fill="url(#shirt)"/>
+              <!-- neck -->
+              <rect x="260" y="440" width="80" height="100" rx="30" fill="url(#skin)"/>
+              <!-- head -->
+              <ellipse cx="300" cy="330" rx="130" ry="160" fill="url(#skin)"/>
+              <!-- hair top -->
+              <path d="M170 310 C 150 170 300 120 440 210 C 470 240 450 340 430 340 C 420 270 370 220 300 225 C 230 230 195 280 180 360 Z" fill="url(#hair)"/>
+              <!-- hair side -->
+              <path d="M170 360 C 150 420 165 510 220 540 C 200 450 200 400 210 360 Z" fill="url(#hair)"/>
+              <!-- earring -->
+              <circle cx="175" cy="370" r="8" fill="#FF3D7F"/>
+              <!-- lips -->
+              <path d="M275 395 Q 300 410 325 395 Q 300 420 275 395 Z" fill="#C73562"/>
+              <!-- eyes -->
+              <ellipse cx="255" cy="330" rx="6" ry="3" fill="#2B1624"/>
+              <ellipse cx="345" cy="330" rx="6" ry="3" fill="#2B1624"/>
+              <!-- brows -->
+              <path d="M238 310 Q 255 302 272 310" stroke="#2B1624" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M328 310 Q 345 302 362 310" stroke="#2B1624" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <!-- cheek blush -->
+              <circle cx="230" cy="370" r="18" fill="#FF3D7F" opacity=".18"/>
+              <circle cx="370" cy="370" r="18" fill="#FF3D7F" opacity=".18"/>
+            </svg>
+          </div>
+
+          <!-- floating chips -->
+          <div class="chip linkedin"><span class="bullet"></span> LinkedIn top voice</div>
+          <div class="chip ig"><span class="bullet"></span> Instagram · 32.4K</div>
+          <div class="chip video"><span class="bullet"></span> Reels · TikTok · Shorts</div>
+
+          <!-- circular lime stamp -->
+          <div class="badge-stamp" aria-hidden="true">
+            <svg viewBox="0 0 140 140">
+              <defs>
+                <path id="circle-path" d="M70,70 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/>
+              </defs>
+              <text font-family="JetBrains Mono" font-size="10.5" letter-spacing="3" fill="#2B1624">
+                <textPath href="#circle-path">BĄDŹ SOBĄ ONLINE · WSZYSCY INNI SĄ ZAJĘCI · </textPath>
+              </text>
+            </svg>
+            <span class="core">free<br><b>15 min</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- stats -->
+    <div class="stats" data-reveal style="--delay:520ms">
+      <div class="stat">
+        <div class="num"><span data-count="10">0</span><span class="plus">+</span></div>
+        <div class="lbl">Lat pracy z markami i liderami</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="540">0</span><span class="plus">+</span></div>
+        <div class="lbl">Przeprowadzonych konsultacji i mentoringu 1:1</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="72">0</span></div>
+        <div class="lbl">Szkoleń i prelekcji dla firm w PL &amp; EU</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="2100">0</span><span class="plus">+</span></div>
+        <div class="lbl">Opublikowanych postów, reelsów i video</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== marquee ========== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Bądź sobą online <span class="star">✦</span> wszyscy inni są już zajęci <span class="star">✦</span> Bądź sobą online <span class="star">✦</span> wszyscy inni są już zajęci <span class="star">✦</span></span>
+    <span>Bądź sobą online <span class="star">✦</span> wszyscy inni są już zajęci <span class="star">✦</span> Bądź sobą online <span class="star">✦</span> wszyscy inni są już zajęci <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ========== about ========== -->
+<section class="section" id="o-mnie">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ 02 / O mnie</b><span>Doris Maklewska · strateżka marki</span></div>
+      <h2 class="sec-title" data-reveal>Strategia, kreatywność i <em>realne</em> wyniki.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text" data-reveal>
+        <p class="lead">
+          Przez 10+ lat w korporacjach prowadziłam programy rozwojowe dla tysięcy menedżerek i specjalistów.
+          Dziś pomagam Ci przełożyć Twoją ekspertyzę na treści, które przyciągają klientów — bez maski i gotowych szablonów.
+        </p>
+        <p>
+          Pracuję z ekspertkami i ekspertami 1:1, z zespołami, z zarządami. Uczę tego, co
+          <i>działa u mnie samej</i>: jak myśleć o komunikacji strategicznie, jak pisać dla LinkedIna,
+          jak kręcić reelsy, które nie starzeją się w tydzień, i jak sprzedawać nie sprzedając.
+        </p>
+        <p>
+          Jeśli masz dużo pomysłów i za mało planu — prawdopodobnie właśnie po to tu jesteś.
+        </p>
+        <div class="sig" aria-label="Podpis">— Doris&nbsp;M.</div>
+      </div>
+
+      <figure class="about-media" data-reveal style="--delay:160ms">
+        <div class="tape" aria-hidden="true"></div>
+        <div class="tape r" aria-hidden="true"></div>
+        <div class="frame" role="img" aria-label="Portret Doris Maklewskiej"></div>
+        <figcaption>Warszawa · Studio · 2026</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== offer ========== -->
+<section class="section" id="oferta" style="background:var(--cream-deep);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ 03 / Oferta</b><span>Mentoring · konsultacje · szkolenia</span></div>
+      <h2 class="sec-title" data-reveal>Jak zbudujemy <em>Twoją</em> markę.</h2>
+    </div>
+
+    <div class="offer-grid">
+      <article class="card feat" data-reveal>
+        <span class="glyph">M</span>
+        <span class="tag">Flagowy program · 3 miesiące</span>
+        <h3>Mentoring <em>1:1</em><br>od strategii do publikacji.</h3>
+        <p>
+          Prywatne sesje co dwa tygodnie, analiza Twoich treści między spotkaniami,
+          plan contentu na kwartał i osobista praca nad narracją marki.
+          Dla osób, które chcą zbudować autorytet i sprzedaż — nie tylko zasięgi.
+        </p>
+        <ul class="bullets">
+          <li>6 sesji 90 min</li>
+          <li>Audyt LinkedIn + IG</li>
+          <li>Plan contentu</li>
+          <li>Voxer między sesjami</li>
+        </ul>
+        <a href="#kontakt" class="link">Zapisz się do kolejki <span class="a">→</span></a>
+      </article>
+
+      <article class="card a" data-reveal style="--delay:120ms">
+        <span class="glyph">k</span>
+        <span class="tag">Pojedyncze spotkanie</span>
+        <h3>Konsultacja <em>strategiczna</em></h3>
+        <p>Dwie godziny na diagnozę, przykłady postów, tematów, kąty widzenia.
+          Wychodzisz z planem na kolejne 30 dni.</p>
+        <a href="#kontakt" class="link">900 PLN · 120 min <span class="a">→</span></a>
+      </article>
+
+      <article class="card b" data-reveal style="--delay:160ms">
+        <span class="glyph">s</span>
+        <span class="tag">Dla firm i zespołów</span>
+        <h3>Szkolenia <em>firmowe</em></h3>
+        <p>Warsztaty z LinkedIna, employer brandingu i video dla 6–60 osób. On-site lub zdalnie.</p>
+        <a href="#kontakt" class="link">Poproś o ofertę <span class="a">→</span></a>
+      </article>
+
+      <article class="card c" data-reveal style="--delay:200ms">
+        <span class="glyph">p</span>
+        <span class="tag">Konferencje &amp; eventy</span>
+        <h3>Prelekcje &amp; <em>keynote</em></h3>
+        <p>Wystąpienia o marce osobistej, kobietach w sieci i nowych mediach — PL/EN.</p>
+        <a href="#kontakt" class="link">Zaproś na scenę <span class="a">→</span></a>
+      </article>
+
+      <article class="card d" data-reveal style="--delay:240ms">
+        <span class="glyph">v</span>
+        <span class="tag">Nowość</span>
+        <h3>Produkcje <em>video</em></h3>
+        <p>Jednodniowe sesje reels + shorts dla ekspertów. Scenariusz, nagranie, montaż, publikacja.</p>
+        <a href="#kontakt" class="link">Sprawdź pakiety <span class="a">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== products ========== -->
+<section class="section" id="produkty">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ 04 / Produkty</b><span>Działaj samodzielnie — już dziś</span></div>
+      <h2 class="sec-title" data-reveal>Weź sprawy <em>we własne ręce</em>.</h2>
+    </div>
+
+    <div class="products">
+      <article class="product ebook" data-reveal>
+        <div class="cover" aria-hidden="true"></div>
+        <span class="price">E-book · 97 PLN</span>
+        <div>
+          <h3>Twój LinkedIn,<br><em>Twoja marka.</em></h3>
+          <p>100+ stron praktyki: jak pisać, publikować, sprzedawać i rozmawiać w 1:1.
+            Zero template'ów copy-paste. Dwie ścieżki: ekspertka solo i liderka w firmie.</p>
+          <div class="meta">
+            <span>108 stron</span><span>24 szablony</span><span>PDF + EPUB</span>
+          </div>
+          <a class="cta-inline" href="#kontakt">Kup e-booka <span class="arr">↗</span></a>
+        </div>
+      </article>
+
+      <article class="product course" data-reveal style="--delay:160ms">
+        <div class="cover" aria-hidden="true"></div>
+        <span class="price">Kurs online · 690 PLN</span>
+        <div>
+          <h3>Filmowanie <em>w pionie.</em></h3>
+          <p>10 lekcji wideo i 6+ godzin konkretów: kadrowanie, światło, scenariusz, montaż,
+            publikacja i analityka. Materiały na 12 miesięcy dostępu.</p>
+          <div class="meta">
+            <span>10 lekcji</span><span>6h+ video</span><span>Społeczność</span>
+          </div>
+          <a class="cta-inline" href="#kontakt">Zapisz mnie <span class="arr">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== manifesto ========== -->
+<section class="manifesto">
+  <div class="wrap">
+    <blockquote data-reveal>
+      „Internet nie potrzebuje kolejnej <em>kopii</em> — potrzebuje Ciebie, dokładnie takiej, jaka jesteś.”
+    </blockquote>
+    <div class="attribution" data-reveal style="--delay:140ms">
+      <span class="rule"></span>
+      Doris Maklewska · manifesto
+    </div>
+  </div>
+</section>
+
+<!-- ========== testimonials ========== -->
+<section class="section testi" id="opinie">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ 05 / Opinie</b><span>Polecają klientki i klienci</span></div>
+      <h2 class="sec-title" data-reveal>Zobacz, co mówią <em>po</em>.</h2>
+    </div>
+
+    <div class="testi-grid">
+      <blockquote class="quote q1" data-reveal>
+        <span class="open">"</span>
+        <p>Doris nie daje gotowców, tylko zmusza do myślenia. Po trzech sesjach wiedziałam już,
+          co pisać, do kogo i po co. Sprzedaż w kwartale ×2.</p>
+        <div class="who"><div class="av">KM</div><div><div class="n">Katarzyna M.</div><div class="r">CEO · butikowa agencja HR</div></div></div>
+      </blockquote>
+
+      <blockquote class="quote q2" data-reveal style="--delay:80ms">
+        <span class="open">"</span>
+        <p>Zrobiłyśmy z zespołem warsztaty employer brandingu — konkret, ładunek energetyczny,
+          zerowy bullshit. Po kwartale 30% wzrost aplikacji.</p>
+        <div class="who"><div class="av">AZ</div><div><div class="n">Anna Zalewska</div><div class="r">HR Director · ABB Poland</div></div></div>
+      </blockquote>
+
+      <blockquote class="quote q3" data-reveal style="--delay:120ms">
+        <span class="open">"</span>
+        <p>Najkonkretniejsze szkolenie z LinkedIna, na jakim byłem. Od następnego dnia piszę inaczej.</p>
+        <div class="who"><div class="av">PR</div><div><div class="n">Paweł R.</div><div class="r">UBS · Zurich</div></div></div>
+      </blockquote>
+
+      <blockquote class="quote q4" data-reveal style="--delay:160ms">
+        <span class="open">"</span>
+        <p>Bałam się kamery. Po jednym dniu z Doris — nagrywam reelsy z przyjemnością.</p>
+        <div class="who"><div class="av">JK</div><div><div class="n">Joanna K.</div><div class="r">coach kariery</div></div></div>
+      </blockquote>
+
+      <blockquote class="quote q5" data-reveal style="--delay:200ms">
+        <span class="open">"</span>
+        <p>Doris to nie „ekspertka od social mediów” — to strateżka. Pokazała mi, że content to tylko narzędzie.
+          Wracam na kolejny kwartał, bo ten zwrócił się kilkunastokrotnie.</p>
+        <div class="who"><div class="av">MB</div><div><div class="n">Marta B.</div><div class="r">founder · SaaS B2B</div></div></div>
+      </blockquote>
+
+      <blockquote class="quote q6" data-reveal style="--delay:240ms">
+        <span class="open">"</span>
+        <p>Poleciłam Doris czterem znajomym przedsiębiorczyniom — wszystkie zostały na mentoring. To mówi wszystko.</p>
+        <div class="who"><div class="av">OD</div><div><div class="n">Olga D.</div><div class="r">Millennium Bank · szefowa komunikacji</div></div></div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ========== clients ========== -->
+<section class="clients">
+  <div class="wrap">
+    <div class="lbl">Zaufali mi · wybrane marki i partnerzy</div>
+    <div class="logo-row">
+      <span>ABB</span>
+      <span>UBS</span>
+      <span>Millennium Bank</span>
+      <span>Santander</span>
+      <span>Allegro</span>
+      <span>PwC</span>
+      <span>Orange</span>
+      <span>IKEA</span>
+      <span>Żabka</span>
+      <span>GOG</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA big ========== -->
+<section class="cta-big" id="kontakt">
+  <div class="wrap">
+    <h2 data-reveal>Porozmawiajmy o Twojej <em>marce</em>.</h2>
+    <div class="row2">
+      <div data-reveal style="--delay:120ms">
+        <p>Zostaw e-mail — odezwę się w 48h z propozycją 15-minutowej, bezpłatnej konsultacji.
+           Bez sprzedażowej paplaniny. Tylko konkret — czy i jak mogę Ci pomóc.</p>
+        <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Dzięki!';">
+          <input type="email" required placeholder="twój@e-mail.pl" aria-label="Email"/>
+          <button type="submit">Umów 15 min</button>
+        </form>
+      </div>
+      <div class="tel" data-reveal style="--delay:200ms">
+        <span class="l">Wolisz telefon?</span>
+        <span class="v"><a href="tel:+48500000000">+48 500 000 000</a></span>
+        <span class="l">Lub napisz: <a href="mailto:hi@dorisinsocialmedia.com" style="color:var(--pink-ink)">hi@dorisinsocialmedia.com</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== footer ========== -->
+<footer id="kontakt-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">doris<em>*</em><br>in social media</div>
+        <p class="foot-about">Studio marki osobistej. Mentoring, strategia i video dla ekspertów w PL i Europie.</p>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn">Li</a>
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="TikTok">Tk</a>
+          <a href="#" aria-label="YouTube">Yt</a>
+          <a href="#" aria-label="Substack">Sb</a>
+        </div>
+      </div>
+      <div>
+        <h4>Nawigacja</h4>
+        <ul>
+          <li><a href="#o-mnie">O mnie</a></li>
+          <li><a href="#oferta">Oferta</a></li>
+          <li><a href="#produkty">Produkty</a></li>
+          <li><a href="#opinie">Opinie</a></li>
+          <li><a href="#blog">Dziennik</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Zasoby</h4>
+        <ul>
+          <li><a href="#">E-book LinkedIn</a></li>
+          <li><a href="#">Kurs Pion</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Case studies</a></li>
+          <li><a href="#">Prasa &amp; press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:hi@dorisinsocialmedia.com">hi@dorisinsocialmedia.com</a></li>
+          <li><a href="tel:+48500000000">+48 500 000 000</a></li>
+          <li>Warszawa · PL</li>
+          <li><a href="#">Regulamin</a></li>
+          <li><a href="#">Polityka prywatności</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footermark">doris</div>
+
+    <div class="colophon">
+      <span>© 2026 Doris Maklewska · All rights reserved</span>
+      <span>Zaprojektowane z troską w Warszawie · v2026.04</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ==== reveal on scroll ==== */
+const io = new IntersectionObserver((entries)=>{
+  for(const e of entries){
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  }
+},{rootMargin:"0px 0px -10% 0px", threshold:.08});
+document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+/* ==== stat counters ==== */
+const countIO = new IntersectionObserver((entries)=>{
+  for(const e of entries){
+    if(e.isIntersecting){
+      const el = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      const dur = 1400;
+      const start = performance.now();
+      function tick(now){
+        const t = Math.min(1, (now-start)/dur);
+        const eased = 1 - Math.pow(1-t, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('pl-PL');
+        if(t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      countIO.unobserve(el);
+    }
+  }
+},{threshold:.4});
+document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+
+/* ==== live clock in topbar ==== */
+function tickClock(){
+  const d = new Date();
+  const hh = d.toLocaleTimeString('pl-PL', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Warsaw'});
+  const clock = document.getElementById('clock');
+  if(clock) clock.textContent = hh + ' CET';
+}
+tickClock(); setInterval(tickClock, 30_000);
+
+/* ==== gentle parallax on portrait chips ==== */
+const right = document.querySelector('.hero-right');
+if(right && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const chips = right.querySelectorAll('.chip');
+  right.addEventListener('mousemove', (e)=>{
+    const r = right.getBoundingClientRect();
+    const x = (e.clientX - r.left)/r.width - .5;
+    const y = (e.clientY - r.top)/r.height - .5;
+    chips.forEach((c,i)=>{
+      const k = (i+1) * 6;
+      c.style.transform = `translate(${x*k}px, ${y*k}px) rotate(${c.classList.contains('ig')?5:c.classList.contains('linkedin')?-6:-2}deg)`;
+    });
+  });
+  right.addEventListener('mouseleave', ()=>{
+    chips.forEach(c => c.style.transform = '');
+  });
+}
+</script>
+</body>
+</html>
