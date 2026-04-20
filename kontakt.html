@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kontakt — Doris Maklewska</title>
+<meta name="description" content="Napisz, zadzwoń albo umów 15 minut rozmowy. Studio Doris — Warszawa, PL." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.page-hero{
+  padding: clamp(40px, 5vw, 80px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero .breadcrumb{
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--teal); font-weight: 600;
+  margin-bottom: 16px;
+}
+.page-hero h1{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(56px, 9vw, 148px);
+  line-height: 0.9;
+  letter-spacing: -.035em;
+  margin: 0;
+  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 1;
+  max-width: 14ch;
+}
+.page-hero h1 em{ font-style: italic; color: var(--pink);}
+.page-hero h1 u{
+  text-decoration: none;
+  background: var(--amber);
+  padding: 0 .12em;
+  border-radius: 10px;
+}
+.page-hero .lead{
+  font-family: var(--f-serif);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 350;
+  line-height: 1.35;
+  max-width: 40ch;
+  margin: 32px 0 0;
+  font-variation-settings:"opsz" 120, "SOFT" 50;
+  color: var(--plum-soft);
+}
+
+/* contact block */
+.contact{
+  border-top: 2px solid var(--plum);
+  padding: clamp(60px, 7vw, 110px) 0;
+  background: var(--paper);
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+/* left: form */
+.contact-form{
+  background: var(--paper-2);
+  border: 2px solid var(--plum);
+  border-radius: 24px;
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 12px 12px 0 var(--plum);
+}
+.contact-form h2{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  margin: 0 0 10px;
+  font-variation-settings:"opsz" 120, "SOFT" 40, "WONK" 1;
+}
+.contact-form h2 em{ font-style: italic; color: var(--pink);}
+.contact-form p.k{
+  font-size: 15.5px; color: var(--plum-soft); margin: 0 0 28px;
+}
+
+.contact-form label{
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--plum);
+  font-weight: 700;
+  margin: 18px 0 8px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width: 100%;
+  border: 2px solid var(--plum);
+  background: var(--paper);
+  border-radius: 14px;
+  padding: 14px 18px;
+  font: inherit;
+  color: var(--plum);
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  border-color: var(--pink);
+  background: #fff;
+}
+.contact-form textarea{ min-height: 140px; resize: vertical;}
+
+.chip-group{
+  display:flex; flex-wrap: wrap; gap: 8px;
+}
+.chip-group input[type="radio"]{ display: none;}
+.chip-group label{
+  margin: 0;
+  padding: 10px 16px;
+  border: 2px solid var(--plum);
+  border-radius: 999px;
+  background: var(--paper);
+  cursor: pointer;
+  letter-spacing: .08em;
+  font-size: 12px;
+  transition: background .2s, color .2s, transform .2s;
+}
+.chip-group input[type="radio"]:checked + label{
+  background: var(--pink);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+.chip-group label:hover{ background: var(--amber);}
+
+.contact-form .submit{
+  margin-top: 28px;
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--plum);
+  color: var(--paper);
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .01em;
+  transition: background .2s, transform .2s;
+}
+.contact-form .submit:hover{ background: var(--pink); transform: translateY(-1px);}
+.contact-form .submit .a{
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--amber); color: var(--plum);
+  display: grid; place-items: center;
+  font-size: 13px;
+  transition: transform .3s;
+}
+.contact-form .submit:hover .a{ transform: rotate(-45deg);}
+
+.fine{
+  margin-top: 16px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--plum-soft);
+  opacity: .7;
+}
+
+/* right: direct contact cards */
+.contact-cards{ display:flex; flex-direction: column; gap: 16px;}
+.cc{
+  padding: 24px 28px;
+  border-radius: 20px;
+  border: 2px solid var(--plum);
+  display:flex; flex-direction: column; gap: 8px;
+  transition: transform .3s, box-shadow .3s;
+}
+.cc:hover{ transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--plum);}
+.cc .lbl{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 700;
+}
+.cc h3{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(20px, 1.8vw, 26px);
+  margin: 0;
+  font-variation-settings:"opsz" 120, "SOFT" 40, "WONK" 1;
+  letter-spacing: -.01em;
+}
+.cc h3 em{ font-style: italic; color: var(--pink);}
+.cc p{
+  font-size: 14.5px; line-height: 1.55;
+  color: var(--plum-soft);
+  margin: 0 0 8px;
+}
+.cc a.big{
+  display:inline-block;
+  font-family: var(--f-serif);
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 400;
+  color: var(--pink);
+  font-variation-settings:"opsz" 144, "SOFT" 60;
+  letter-spacing: -.01em;
+  border-bottom: 2px dashed var(--pink);
+  padding-bottom: 2px;
+}
+.cc a.big:hover{ color: var(--plum); border-bottom-color: var(--plum);}
+
+.cc.amber{ background: var(--amber);}
+.cc.amber .lbl{ color: var(--plum);}
+.cc.teal{ background: var(--teal); color: var(--paper);}
+.cc.teal .lbl{ color: var(--amber);}
+.cc.teal p{ color: color-mix(in srgb, var(--paper) 88%, transparent);}
+.cc.teal a.big{ color: var(--amber); border-bottom-color: var(--amber);}
+.cc.teal a.big:hover{ color: var(--paper); border-bottom-color: var(--paper);}
+.cc.pink{ background: var(--pink); color: var(--paper);}
+.cc.pink .lbl{ color: var(--amber);}
+.cc.pink p{ color: color-mix(in srgb, var(--paper) 92%, transparent);}
+.cc.pink h3 em{ color: var(--amber);}
+.cc.pink a.big{ color: var(--amber); border-bottom-color: var(--amber);}
+
+.contact-hours{
+  margin-top: 16px;
+  padding: 20px 24px;
+  background: var(--plum);
+  color: var(--paper);
+  border-radius: 20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.contact-hours .lbl{
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--amber); font-weight: 700;
+}
+.contact-hours table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.contact-hours table td{
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(255,255,255,.12);
+}
+.contact-hours table td:last-child{ text-align: right; font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em;}
+.contact-hours table tr:last-child td{ border-bottom: 0;}
+
+/* newsletter */
+.newsletter{
+  background: var(--amber);
+  padding: clamp(60px, 7vw, 110px) 0;
+  border-top: 2px solid var(--plum);
+  border-bottom: 2px solid var(--plum);
+}
+.nl-grid{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.nl-grid h2{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(40px, 5vw, 80px);
+  line-height: .95;
+  letter-spacing: -.03em;
+  margin: 0;
+  max-width: 16ch;
+  color: var(--plum);
+  font-variation-settings:"opsz" 144, "SOFT" 30, "WONK" 1;
+}
+.nl-grid h2 em{ font-style: italic; color: var(--pink);}
+.nl-grid p{
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.6;
+  color: var(--plum-soft);
+  margin: 20px 0;
+  max-width: 42ch;
+}
+.nl-form{
+  display:flex; flex-wrap: wrap; gap: 10px;
+  background: var(--paper-2);
+  padding: 10px;
+  border-radius: 999px;
+  border: 2px solid var(--plum);
+  max-width: 560px;
+}
+.nl-form input{
+  flex: 1;
+  border: 0; background: transparent;
+  padding: 12px 18px;
+  font: inherit;
+  color: var(--plum);
+  outline: none;
+  min-width: 200px;
+}
+.nl-form button{
+  background: var(--plum);
+  color: var(--paper);
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background .2s;
+}
+.nl-form button:hover{ background: var(--pink);}
+
+.nl-perks{
+  display:flex; flex-direction: column; gap: 12px;
+}
+.nl-perk{
+  display:flex; gap: 12px;
+  align-items: flex-start;
+  padding: 14px 18px;
+  background: var(--paper-2);
+  border-radius: 14px;
+  border: 2px solid var(--plum);
+}
+.nl-perk .i{
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--pink);
+  color: var(--paper);
+  display: grid; place-items: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.nl-perk:nth-child(2) .i{ background: var(--teal);}
+.nl-perk:nth-child(3) .i{ background: var(--orange);}
+.nl-perk h4{
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0 0 4px;
+  font-variation-settings:"opsz" 120, "SOFT" 40, "WONK" 1;
+}
+.nl-perk h4 em{ font-style: italic; color: var(--pink);}
+.nl-perk p{
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--plum-soft);
+  margin: 0;
+}
+
+/* map block */
+.map-block{
+  padding: clamp(48px, 6vw, 90px) 0;
+  background: var(--plum);
+  color: var(--paper);
+  overflow: hidden;
+}
+.map-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 60px);
+  align-items: center;
+}
+.map-grid h2{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(34px, 4vw, 60px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  margin: 0;
+  max-width: 16ch;
+  font-variation-settings:"opsz" 144, "SOFT" 30, "WONK" 1;
+}
+.map-grid h2 em{ font-style: italic; color: var(--amber);}
+.map-grid p{ font-size: 16px; line-height: 1.6; margin: 20px 0 0; max-width: 42ch; opacity: .85;}
+.map-visual{
+  aspect-ratio: 4/3;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(80% 60% at 60% 40%, #0077B5 0%, #1A102B 100%);
+  border: 2px solid var(--amber);
+}
+.map-pin{
+  position: absolute;
+  top: 40%; left: 52%;
+  width: 28px; height: 28px;
+  background: var(--pink);
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px rgba(255,0,110,.3), 0 0 0 18px rgba(255,0,110,.12);
+  animation: pulse-pin 2s ease-in-out infinite;
+}
+@keyframes pulse-pin{
+  0%, 100%{ box-shadow: 0 0 0 8px rgba(255,0,110,.3), 0 0 0 18px rgba(255,0,110,.12);}
+  50%{ box-shadow: 0 0 0 12px rgba(255,0,110,.4), 0 0 0 24px rgba(255,0,110,.18);}
+}
+.map-visual .label{
+  position: absolute;
+  top: calc(40% - 40px); left: calc(52% + 20px);
+  background: var(--amber);
+  color: var(--plum);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.map-visual .coord{
+  position: absolute;
+  bottom: 20px; left: 20px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: .7;
+}
+
+@media (max-width: 980px){
+  .contact-grid{ grid-template-columns: 1fr;}
+  .nl-grid{ grid-template-columns: 1fr;}
+  .map-grid{ grid-template-columns: 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="dot"></span> Przyjmuję nowe projekty — jesień 2026</div>
+    <div>
+      <span>Warszawa, PL</span>
+      <span class="sep">//</span>
+      <span id="clock">—</span>
+      <span class="sep">//</span>
+      <span>PL / EN</span>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      doris<b>*</b>in social media <sup>est. 2015</sup>
+    </a>
+    <nav>
+      <ul>
+        <li><a class="navlink" href="index.html">Start</a></li>
+        <li><a class="navlink" href="o-mnie.html">O mnie</a></li>
+        <li><a class="navlink" href="oferta.html">Oferta</a></li>
+        <li><a class="navlink" href="wspolpraca.html">Dla kogo</a></li>
+        <li><a class="navlink" href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a href="#form" class="cta">
+      Napisz teraz <span class="arrow">↗</span>
+    </a>
+  </div>
+</header>
+
+<!-- ========== page hero ========== -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb">Start → <b style="color:var(--plum)">Kontakt</b></div>
+    <h1 data-reveal>No to <em>cześć</em>. <br>Piszesz do <u>mnie</u>.</h1>
+    <p class="lead" data-reveal style="--delay:120ms">
+      Najszybsza droga: formularz poniżej albo bezpośredni mail. Odpisuję w 48h — uczciwie.
+      Jeśli piszesz o mentoringu, dorzuć parę zdań o sobie, to ułatwi rozmowę.
+    </p>
+  </div>
+</section>
+
+<!-- ========== contact ========== -->
+<section class="contact" id="form">
+  <div class="wrap">
+    <div class="contact-grid">
+      <!-- form -->
+      <form class="contact-form" data-reveal
+            onsubmit="event.preventDefault(); this.querySelector('.submit span').textContent='Dzięki! Odezwę się.'; this.querySelector('.submit').style.background='var(--pink)';">
+        <h2>Napisz <em>parę słów</em>.</h2>
+        <p class="k">Odpiszę w 48h. Jeśli sprawa pilna — telefon po prawej.</p>
+
+        <label for="name">Imię i nazwisko</label>
+        <input id="name" type="text" required placeholder="Jan Kowalski"/>
+
+        <label for="email">E-mail</label>
+        <input id="email" type="email" required placeholder="jan@firma.pl"/>
+
+        <label for="role">Funkcja / firma (jeśli dotyczy)</label>
+        <input id="role" type="text" placeholder="Founder · XYZ Sp. z o.o."/>
+
+        <label>O czym chcesz porozmawiać?</label>
+        <div class="chip-group">
+          <input type="radio" name="topic" id="t1" value="mentoring" checked><label for="t1">Mentoring 1:1</label>
+          <input type="radio" name="topic" id="t2" value="konsultacja"><label for="t2">Konsultacja</label>
+          <input type="radio" name="topic" id="t3" value="szkolenie"><label for="t3">Szkolenie firmowe</label>
+          <input type="radio" name="topic" id="t4" value="prelekcja"><label for="t4">Prelekcja</label>
+          <input type="radio" name="topic" id="t5" value="video"><label for="t5">Video</label>
+          <input type="radio" name="topic" id="t6" value="inne"><label for="t6">Coś innego</label>
+        </div>
+
+        <label for="msg">Krótko: co chcesz osiągnąć?</label>
+        <textarea id="msg" required placeholder="Np. „Prowadzę butikową agencję HR. Mam profil na LinkedInie, ale nie czuję, że to działa. Chcę zbudować markę, która sprzedaje…”"></textarea>
+
+        <button type="submit" class="submit">
+          <span>Wyślij wiadomość</span>
+          <span class="a">↗</span>
+        </button>
+        <p class="fine">
+          * Wysyłając wiadomość, zgadzasz się na kontakt mailowy.
+          Nie zapisuję do żadnej listy mailingowej bez pytania.
+        </p>
+      </form>
+
+      <!-- direct cards -->
+      <div class="contact-cards" data-reveal style="--delay:160ms">
+        <div class="cc amber">
+          <span class="lbl">Najszybciej</span>
+          <h3>Napisz <em>mail</em>.</h3>
+          <p>Odpowiadam zwykle w ten sam dzień roboczy. Piszesz „cześć, mam taką sprawę…” — i to wystarczy.</p>
+          <a class="big" href="mailto:hi@dorisinsocialmedia.com">hi@dorisinsocialmedia.com</a>
+        </div>
+
+        <div class="cc teal">
+          <span class="lbl">Pilne tematy</span>
+          <h3>Zadzwoń <em>wprost</em>.</h3>
+          <p>Pon–Pt 9:00–17:00. Krótki sygnał, oddzwonię w tym samym dniu.</p>
+          <a class="big" href="tel:+48500000000">+48 500 000 000</a>
+        </div>
+
+        <div class="cc pink">
+          <span class="lbl">Wolisz LinkedIn?</span>
+          <h3>Zaproś <em>tam</em>.</h3>
+          <p>Napisz w wiadomości prywatnej jedno zdanie o czym rozmawiamy. Ja rozmowy na LinkedIn czytam — i odpisuję.</p>
+          <a class="big" href="#">linkedin.com/in/doris-maklewska</a>
+        </div>
+
+        <div class="contact-hours">
+          <span class="lbl">Godziny pracy</span>
+          <table>
+            <tr><td>Poniedziałek – Czwartek</td><td>9:00 – 17:00</td></tr>
+            <tr><td>Piątek</td><td>9:00 – 14:00</td></tr>
+            <tr><td>Weekend</td><td>nie pracuję (serio)</td></tr>
+            <tr><td>Strefa czasowa</td><td>Europe / Warsaw</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== marquee ========== -->
+<div class="marquee pink" aria-hidden="true">
+  <div class="marquee-track">
+    <span>piszesz · oddzwaniam · pracujemy <span class="star">✦</span> piszesz · oddzwaniam · pracujemy <span class="star">✦</span></span>
+    <span>piszesz · oddzwaniam · pracujemy <span class="star">✦</span> piszesz · oddzwaniam · pracujemy <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ========== newsletter ========== -->
+<section class="newsletter" id="newsletter">
+  <div class="wrap">
+    <div class="nl-grid">
+      <div data-reveal>
+        <h2>Listy od <em>Doris</em>.</h2>
+        <p>
+          Co dwa tygodnie, w piątek rano, wysyłam krótki list o marce osobistej, komunikacji
+          i tym, co mnie w tym tygodniu zawiodło albo zachwyciło. Bez clickbaitu, bez „kup kurs”.
+          Tylko konkret. Ok. 2 500 osób czyta. Ty też możesz.
+        </p>
+        <form class="nl-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Zapisana!';">
+          <input type="email" required placeholder="twój@e-mail.pl" aria-label="Email"/>
+          <button type="submit">Zapisz mnie</button>
+        </form>
+      </div>
+
+      <div class="nl-perks" data-reveal style="--delay:160ms">
+        <div class="nl-perk">
+          <div class="i">1</div>
+          <div>
+            <h4>Co <em>dwa</em> tygodnie, piątek rano.</h4>
+            <p>Żadnego spamu, żadnych „ostatnia szansa”. Jeden list = jedna myśl = jedna sugestia.</p>
+          </div>
+        </div>
+        <div class="nl-perk">
+          <div class="i">2</div>
+          <div>
+            <h4>Ekskluzywne <em>materiały</em>.</h4>
+            <p>Case studies, kulisy warsztatów, przykłady z mojej praktyki — których nie publikuję nigdzie indziej.</p>
+          </div>
+        </div>
+        <div class="nl-perk">
+          <div class="i">3</div>
+          <div>
+            <h4>Pierwszeństwo w <em>zapisach</em>.</h4>
+            <p>Nowe miejsca w mentoringu 1:1 i warsztatach — najpierw wysyłam do listy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== map ========== -->
+<section class="map-block">
+  <div class="wrap">
+    <div class="map-grid">
+      <div data-reveal>
+        <h2>Warszawa. <em>Mokotów</em>. Studio.</h2>
+        <p>
+          Spotkania 1:1 i sesje video odbywają się w moim studio w Warszawie.
+          Dokładny adres wysyłam po ustaleniu terminu — dla spokoju.
+          Spotkania online — Google Meet, bez instalowania apek.
+        </p>
+      </div>
+      <div class="map-visual" data-reveal style="--delay:160ms">
+        <div class="map-pin"></div>
+        <div class="label">Studio Doris</div>
+        <div class="coord">52.1963°N · 21.0067°E</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">doris<em>*</em><br>in social media</div>
+        <p class="foot-about">Studio marki osobistej. Mentoring, strategia i video dla ekspertów w PL i Europie. Bez szablonów.</p>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn">Li</a>
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="TikTok">Tk</a>
+          <a href="#" aria-label="YouTube">Yt</a>
+          <a href="#" aria-label="Substack">Sb</a>
+        </div>
+      </div>
+      <div>
+        <h4>Nawigacja</h4>
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="o-mnie.html">O mnie</a></li>
+          <li><a href="oferta.html">Oferta</a></li>
+          <li><a href="wspolpraca.html">Dla kogo</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Zasoby</h4>
+        <ul>
+          <li><a href="oferta.html#ebook">E-book LinkedIn</a></li>
+          <li><a href="oferta.html#kurs">Kurs Pion</a></li>
+          <li><a href="kontakt.html#newsletter">Newsletter</a></li>
+          <li><a href="#">Case studies</a></li>
+          <li><a href="#">Prasa &amp; press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:hi@dorisinsocialmedia.com">hi@dorisinsocialmedia.com</a></li>
+          <li><a href="tel:+48500000000">+48 500 000 000</a></li>
+          <li>Warszawa · PL</li>
+          <li><a href="#">Regulamin</a></li>
+          <li><a href="#">Polityka prywatności</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footermark">doris</div>
+    <div class="colophon">
+      <span>© 2026 Doris Maklewska · All rights reserved</span>
+      <span>Zaprojektowane z troską w Warszawie · v2026.05</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

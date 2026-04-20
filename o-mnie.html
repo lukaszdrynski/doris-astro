@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>O mnie — Doris Maklewska</title>
+<meta name="description" content="Doris Maklewska — kim jestem, dlaczego pomagam budować marki osobiste, i czemu nie lubię słowa „autentyczny”." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* ============ page hero ============ */
+.page-hero{
+  padding: clamp(40px, 5vw, 80px) 0 clamp(40px, 5vw, 80px);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before{
+  content:"";
+  position:absolute; inset:auto -5% -60% 45%;
+  width: 80%; height: 120%;
+  background: radial-gradient(50% 60% at 50% 0%, rgba(255,190,11,.3), transparent 60%);
+  pointer-events:none;
+}
+.page-hero .wrap{ position:relative; z-index:1;}
+.page-hero .breadcrumb{
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--teal); font-weight: 600;
+  margin-bottom: 16px;
+}
+.page-hero h1{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(56px, 9vw, 148px);
+  line-height: 0.9;
+  letter-spacing: -.035em;
+  margin: 0;
+  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 1;
+}
+.page-hero h1 em{ font-style: italic; color: var(--pink);}
+.page-hero h1 u{
+  text-decoration: none;
+  background: var(--amber);
+  padding: 0 .12em;
+  border-radius: 10px;
+  display: inline-block;
+  transform: rotate(-.4deg);
+}
+.page-hero .lead{
+  font-family: var(--f-serif);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 350;
+  line-height: 1.35;
+  max-width: 36ch;
+  margin: 32px 0 0;
+  font-variation-settings:"opsz" 120, "SOFT" 50;
+  color: var(--plum-soft);
+}
+
+/* ============ bio grid ============ */
+.bio{ padding: clamp(60px, 7vw, 110px) 0; border-top: 2px solid var(--plum);}
+.bio-grid{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+.bio-media{
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  overflow:hidden;
+  background:
+    radial-gradient(120% 85% at 30% 20%, #FFD557 0%, #FB5607 50%, #1A102B 100%);
+  box-shadow: 14px 14px 0 var(--plum);
+  position: sticky; top: 100px;
+}
+.bio-media::after{
+  content:"";
+  position:absolute; inset:0;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'><circle cx='1' cy='1' r='.6' fill='%230E0A1A22'/></svg>");
+  mix-blend-mode: overlay;
+}
+.bio-media .caption{
+  position:absolute; left: 20px; bottom: 20px;
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--paper); background: rgba(14,10,26,.7);
+  padding: 8px 12px; border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.bio-media .tape{
+  position:absolute; top: -14px; left: 40px;
+  width: 120px; height: 30px;
+  background: var(--teal);
+  transform: rotate(-4deg);
+}
+.bio-media .tape.r{ left:auto; right:30px; top:auto; bottom:-14px; transform: rotate(3deg); background: var(--pink);}
+.bio-media .sticker-float{
+  position:absolute; top: 30px; right: -24px;
+  background: var(--amber);
+  color: var(--plum);
+  padding: 10px 16px;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 18px;
+  border-radius: 999px;
+  transform: rotate(6deg);
+  box-shadow: 6px 6px 0 var(--plum);
+  font-weight: 500;
+}
+
+.bio-text p{
+  font-size: clamp(17px, 1.2vw, 19px);
+  line-height: 1.65;
+  color: var(--plum-soft);
+  margin: 0 0 1.2em;
+}
+.bio-text p.lead{
+  font-family: var(--f-serif);
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 350;
+  line-height: 1.3;
+  color: var(--plum);
+  margin-bottom: 1em;
+  font-variation-settings:"opsz" 120, "SOFT" 40, "WONK" 1;
+}
+.bio-text p.lead em{ font-style: italic; color: var(--pink);}
+.bio-text h2{
+  font-family: var(--f-serif);
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 350;
+  letter-spacing: -.02em;
+  margin: 2em 0 .6em;
+  font-variation-settings:"opsz" 120, "SOFT" 30, "WONK" 1;
+}
+.bio-text h2 em{ font-style: italic; color: var(--pink);}
+.bio-text .pullquote{
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--plum);
+  border-left: 4px solid var(--pink);
+  padding: 4px 0 4px 20px;
+  margin: 28px 0;
+  font-variation-settings:"opsz" 120, "SOFT" 100, "WONK" 1;
+}
+.bio-text .pullquote u{
+  text-decoration: none; background: var(--amber); padding: 0 4px;
+}
+.sig{
+  margin-top: 32px;
+  display:flex; align-items:center; gap:14px;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 36px;
+  color: var(--pink);
+  font-variation-settings:"SOFT" 100, "WONK" 1;
+}
+
+/* ============ values ============ */
+.values{ background: var(--teal); color: var(--paper);}
+.values .sec-id{ border-top-color: var(--amber); color: var(--amber);}
+.values .sec-id b{ color: var(--amber);}
+.values .sec-title{ color: var(--paper);}
+.values .sec-title em{ color: var(--amber);}
+
+.value-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+}
+.value{
+  padding: 28px 24px;
+  border: 2px solid rgba(255,255,255,.14);
+  border-radius: 20px;
+  display:flex; flex-direction:column; gap:10px;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.value:hover{ background: rgba(255,190,11,.08); border-color: var(--amber); transform: translateY(-4px);}
+.value .num{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  color: var(--amber);
+  font-weight: 700;
+}
+.value h3{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(22px, 1.8vw, 28px);
+  line-height: 1.1;
+  margin: 0;
+  font-variation-settings:"opsz" 120, "SOFT" 50, "WONK" 1;
+}
+.value h3 em{ font-style: italic; color: var(--amber);}
+.value p{ font-size: 14.5px; line-height: 1.55; opacity: .88; margin: 0;}
+
+/* ============ timeline ============ */
+.timeline{ padding: clamp(72px, 8vw, 130px) 0; background: var(--amber);}
+.timeline .sec-id{ border-top-color: var(--plum); color: var(--plum);}
+.timeline .sec-id b{ color: var(--plum);}
+.timeline .sec-title em{ color: var(--pink);}
+
+.tl{
+  display:flex; flex-direction:column; gap: 0;
+  border-left: 3px solid var(--plum);
+  margin-top: 40px;
+  padding-left: clamp(20px, 3vw, 40px);
+}
+.tl-item{
+  position: relative;
+  padding: 0 0 clamp(32px, 4vw, 48px);
+}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left: calc(-1*(clamp(20px, 3vw, 40px) + 11px));
+  top: 10px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--pink);
+  border: 3px solid var(--plum);
+}
+.tl-item:nth-child(odd)::before{ background: var(--teal); }
+.tl-item:nth-child(3n)::before{ background: var(--orange); }
+.tl-item .year{
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: .18em;
+  color: var(--plum);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.tl-item h3{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(24px, 2.4vw, 36px);
+  line-height: 1.1;
+  margin: 0 0 8px;
+  color: var(--plum);
+  font-variation-settings:"opsz" 120, "SOFT" 40, "WONK" 1;
+}
+.tl-item h3 em{ font-style: italic; color: var(--pink);}
+.tl-item p{
+  font-size: 15.5px; line-height: 1.55; color: var(--plum); opacity: .82;
+  max-width: 58ch; margin: 0;
+}
+
+/* ============ press ============ */
+.press{ padding: clamp(48px, 6vw, 90px) 0; background: var(--plum); color: var(--paper);}
+.press .lbl{
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--amber); font-weight: 700;
+  margin-bottom: 20px;
+}
+.press h2{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1;
+  margin: 0 0 32px;
+  max-width: 16ch;
+  font-variation-settings:"opsz" 144, "SOFT" 30, "WONK" 1;
+}
+.press h2 em{ font-style: italic; color: var(--amber);}
+.press-row{
+  display:flex; flex-wrap:wrap; gap: clamp(24px, 4vw, 60px);
+  align-items: baseline;
+}
+.press-row span{
+  font-family: var(--f-serif); font-style: italic; font-size: clamp(22px, 2.2vw, 36px);
+  color: var(--paper); opacity: .7;
+  font-variation-settings:"opsz" 144, "SOFT" 80;
+  transition: color .2s, opacity .2s;
+}
+.press-row span:nth-child(2n){ font-style: normal; font-weight: 500; letter-spacing: -.03em;}
+.press-row span:nth-child(3n){ font-family: var(--f-sans); text-transform: uppercase; font-weight: 700; letter-spacing: .04em; font-size: .76em;}
+.press-row span:hover{ color: var(--amber); opacity: 1;}
+
+/* responsive */
+@media (max-width: 980px){
+  .bio-grid{ grid-template-columns: 1fr;}
+  .bio-media{ position: static;}
+  .value-grid{ grid-template-columns: repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="dot"></span> Przyjmuję nowe projekty — jesień 2026</div>
+    <div>
+      <span>Warszawa, PL</span>
+      <span class="sep">//</span>
+      <span id="clock">—</span>
+      <span class="sep">//</span>
+      <span>PL / EN</span>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      doris<b>*</b>in social media <sup>est. 2015</sup>
+    </a>
+    <nav>
+      <ul>
+        <li><a class="navlink" href="index.html">Start</a></li>
+        <li><a class="navlink" href="o-mnie.html">O mnie</a></li>
+        <li><a class="navlink" href="oferta.html">Oferta</a></li>
+        <li><a class="navlink" href="wspolpraca.html">Dla kogo</a></li>
+        <li><a class="navlink" href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a href="kontakt.html" class="cta">
+      Pogadajmy <span class="arrow">↗</span>
+    </a>
+  </div>
+</header>
+
+<!-- ========== page hero ========== -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb">Start → <b style="color:var(--plum)">O mnie</b></div>
+    <h1 data-reveal>
+      Jestem <em>Doris</em>. <br>
+      mówię <u>prosto</u>, <br>
+      pracuję konkretnie.
+    </h1>
+    <p class="lead" data-reveal style="--delay:140ms">
+      Strateżka marki osobistej, mentorka, trenerka. 10+ lat w korpo, ~dekada solo.
+      Kawa czarna, Fraunces Italic, kamera w telefonie, plan na kwartał.
+    </p>
+  </div>
+</section>
+
+<!-- ========== bio ========== -->
+<section class="bio">
+  <div class="wrap">
+    <div class="bio-grid">
+      <figure class="bio-media" data-reveal>
+        <div class="tape"></div>
+        <div class="tape r"></div>
+        <div class="sticker-float">cześć, to ja</div>
+        <figcaption class="caption">Warszawa · Studio · 2026</figcaption>
+      </figure>
+
+      <div class="bio-text" data-reveal style="--delay:120ms">
+        <p class="lead">
+          Piętnaście lat temu szkoliłam menedżerki w dużej korporacji. Dziś szkolę je,
+          <em>żeby miały odwagę wyjść z korporacji</em> — albo zostać, ale na własnych warunkach.
+        </p>
+        <p>
+          Zaczęłam klasycznie: studia, HR, L&amp;D, programy rozwojowe dla tysięcy osób.
+          Lubiłam tę pracę, ale szybko zauważyłam coś, czego nikt nie chciał nazwać:
+          ludzie bali się o sobie mówić. Piszemy CV w pasywnej trzeciej osobie. Mówimy
+          „my”, gdy mamy na myśli „ja”. Pracujemy 10 lat, a światu pokazujemy 3 zdania w LinkedIn.
+        </p>
+        <p class="pullquote">
+          A potem się dziwimy, że nikt nas nie pamięta. <u>To nie jest kwestia skromności</u> — to kwestia systemu, w którym nas wychowano.
+        </p>
+
+        <h2>Jak się tu znalazłam (wersja <em>krótka</em>)</h2>
+        <p>
+          W 2015 założyłam jednoosobową działalność i zaczęłam pisać na LinkedInie tak,
+          jak mówię: z humorem, z uwagą, z własnym zdaniem. W trzy lata zebrałam
+          społeczność, która dziś liczy kilkadziesiąt tysięcy osób — i którą
+          traktuję serio, nie jak „followersów”.
+        </p>
+        <p>
+          Od tej pory prowadzę mentoringi 1:1, szkolę firmy, jeżdżę na konferencje.
+          Pracowałam z ABB, UBS, Millennium, Santander, PwC i z dziesiątkami przedsiębiorczyń,
+          których nie znajdziesz jeszcze w mediach. Ale znajdziesz — niedługo.
+        </p>
+
+        <h2>Jak pracuję (bez <em>ściemy</em>)</h2>
+        <p>
+          Nie sprzedaję „10 szablonów postów, które zmienią Twoje życie”. To bzdura.
+          Pokazuję Ci, jak myśleć o Twojej komunikacji jak strateżka: kto, co, dlaczego, kiedy.
+          Jaka jest Twoja historia i jakim językiem chcesz ją opowiedzieć.
+          A potem — co publikować we wtorek o 9:00.
+        </p>
+        <p>
+          Lubię pracę 1:1, bo wierzę, że tam dzieje się prawdziwy przełom.
+          Lubię pracę z zespołami, bo wtedy widać, że LinkedIn to nie jest „nowy marketing” —
+          to sposób pracy całej firmy. I lubię scenę, bo czuję się tam, jakbym wreszcie
+          mogła krzyczeć to, co mówię codziennie ciszej.
+        </p>
+
+        <h2>Czego <em>nie</em> robię</h2>
+        <p>
+          Nie pracuję z ludźmi, którzy chcą „tylko zasięgi”. Nie piszę cudzym głosem.
+          Nie obiecuję 100k followersów w miesiąc — bo to najczęściej pułapka, nie cel.
+          Nie używam słowa „autentyczny”, bo jest już wyblakłe jak sweter z Vinted.
+        </p>
+        <div class="sig">— Doris&nbsp;M.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== values ========== -->
+<section class="section values">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ / Wartości</b><span>Jak pracujemy, co nas łączy</span></div>
+      <h2 class="sec-title" data-reveal>Cztery rzeczy, na które <em>nie idę na kompromis</em>.</h2>
+    </div>
+
+    <div class="value-grid">
+      <div class="value" data-reveal>
+        <span class="num">01</span>
+        <h3>Konkret <em>przed</em> teorią.</h3>
+        <p>Nie nauczę Cię „czym jest marka osobista”. Pokażę, jak ma wyglądać u Ciebie — w piątek, o 11:00, kiedy masz 20 minut i pół kawy.</p>
+      </div>
+      <div class="value" data-reveal style="--delay:100ms">
+        <span class="num">02</span>
+        <h3>Twój <em>głos</em>, nie mój.</h3>
+        <p>Nie jestem ghostwriterką. Jeżeli ja napiszę Twój post, to on jest mój. A ja chcę, żeby Twój LinkedIn brzmiał jak Ty.</p>
+      </div>
+      <div class="value" data-reveal style="--delay:180ms">
+        <span class="num">03</span>
+        <h3>Strategia <em>przed</em> estetyką.</h3>
+        <p>Ładny feed nie sprzedaje. Sprzedaje plan, cel, odbiorca, obietnica i powtarzalność. Estetyka to bonus (też ważny, ale bonus).</p>
+      </div>
+      <div class="value" data-reveal style="--delay:260ms">
+        <span class="num">04</span>
+        <h3>Mało <em>bullshitu</em>.</h3>
+        <p>Powiem Ci, co działa, co nie działa, czego nie wiem i czego się uczę. Jeśli ktoś obiecuje Ci gwarancje w social mediach — ucieka się z nim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== timeline ========== -->
+<section class="timeline">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ / Linia czasu</b><span>Jak się tu znalazłam — w 6 etapach</span></div>
+      <h2 class="sec-title" data-reveal>Nie ma <em>skrótu</em>. <br>Jest tylko Twoja droga.</h2>
+    </div>
+
+    <div class="tl">
+      <div class="tl-item" data-reveal>
+        <div class="year">2008 — 2014</div>
+        <h3>L&amp;D w <em>dużej</em> korporacji.</h3>
+        <p>Programy rozwojowe dla menedżerek i specjalistek. Szkolę, moderuję, prowadzę projekty zmiany. Uczę się, że ludzie potrafią więcej, niż sami od siebie wymagają — i że rzadko to widzą.</p>
+      </div>
+      <div class="tl-item" data-reveal>
+        <div class="year">2015</div>
+        <h3>Zakładam <em>działalność</em>.</h3>
+        <p>Idę na swoje. Trenerka, konsultantka, coach kariery. LinkedIn traktuję jako hobby — piszę tam, bo lubię pisać. Ludzie zaczynają się zapisywać na konsultacje.</p>
+      </div>
+      <div class="tl-item" data-reveal>
+        <div class="year">2017 — 2019</div>
+        <h3>Pierwsze <em>zawodowe</em> marki osobiste.</h3>
+        <p>Zaczynam prowadzić mentoringi 1:1 z HR-owczyniami i liderkami. Pierwsze szkolenia firmowe z komunikacji. „Marka osobista” jest jeszcze niszą — w Polsce mało kto o tym mówi serio.</p>
+      </div>
+      <div class="tl-item" data-reveal>
+        <div class="year">2020 — 2022</div>
+        <h3>Pandemia = <em>przyspieszenie</em>.</h3>
+        <p>Wszyscy nagle muszą być w internecie. Prowadzę warsztaty zdalne dla ABB, UBS, Millennium, Santander. LinkedIn uznaje mnie jako Top Voice w kategorii Leadership.</p>
+      </div>
+      <div class="tl-item" data-reveal>
+        <div class="year">2023 — 2024</div>
+        <h3>Wchodzę w <em>video</em>.</h3>
+        <p>Odkrywam, że pionowe video to nie tylko „dla młodzieży”. 45-latki biorą kamerę do ręki i nagrywają reelsy, które bija na głowę LinkedIn carousele. Produkuję pierwsze sesje video dla klientów.</p>
+      </div>
+      <div class="tl-item" data-reveal>
+        <div class="year">2025 — dziś</div>
+        <h3>Studio <em>Doris</em>.</h3>
+        <p>Prowadzę flagowy program mentoringowy, dwa kursy online, e-book i regularnie wystąpienia w PL &amp; EU. Piszę książkę. Mam dobrze dobrany zespół. I plany, o których jeszcze nie mówię (ale będzie głośno).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== marquee ========== -->
+<div class="marquee pink" aria-hidden="true">
+  <div class="marquee-track">
+    <span>ekspertka · mentorka · strateżka · trenerka <span class="star">✦</span> ekspertka · mentorka · strateżka · trenerka <span class="star">✦</span></span>
+    <span>ekspertka · mentorka · strateżka · trenerka <span class="star">✦</span> ekspertka · mentorka · strateżka · trenerka <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ========== press ========== -->
+<section class="press">
+  <div class="wrap">
+    <div class="lbl">Pisali o mnie · mówili ze mną</div>
+    <h2>Głośno <em>o tym</em>, o czym cicho w biurach.</h2>
+    <div class="press-row">
+      <span>Forbes Women</span>
+      <span>Harvard Business Review Polska</span>
+      <span>My Company</span>
+      <span>Newsweek</span>
+      <span>Vogue Polska</span>
+      <span>BrandVoice</span>
+      <span>Marketer+</span>
+      <span>HR Business Partner</span>
+      <span>INN:Poland</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA big ========== -->
+<section class="cta-big">
+  <div class="wrap">
+    <h2 data-reveal>Chcesz zobaczyć, jak to działa <em>u Ciebie</em>?</h2>
+    <div class="row2">
+      <div data-reveal style="--delay:120ms">
+        <p>Zostaw e-mail — w 48h odezwę się z propozycją 15-minutowej, bezpłatnej rozmowy.
+           Bez prezentacji, bez follow-upów. Tylko konkret.</p>
+        <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Dzięki! Odezwę się.';">
+          <input type="email" required placeholder="twój@e-mail.pl" aria-label="Email"/>
+          <button type="submit">Umów 15 min</button>
+        </form>
+      </div>
+      <div class="tel" data-reveal style="--delay:200ms">
+        <span class="l">Wolisz telefon?</span>
+        <span class="v"><a href="tel:+48500000000">+48 500 000 000</a></span>
+        <span class="l">Albo napisz: <a href="mailto:hi@dorisinsocialmedia.com">hi@dorisinsocialmedia.com</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">doris<em>*</em><br>in social media</div>
+        <p class="foot-about">Studio marki osobistej. Mentoring, strategia i video dla ekspertów w PL i Europie. Bez szablonów.</p>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn">Li</a>
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="TikTok">Tk</a>
+          <a href="#" aria-label="YouTube">Yt</a>
+          <a href="#" aria-label="Substack">Sb</a>
+        </div>
+      </div>
+      <div>
+        <h4>Nawigacja</h4>
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="o-mnie.html">O mnie</a></li>
+          <li><a href="oferta.html">Oferta</a></li>
+          <li><a href="wspolpraca.html">Dla kogo</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Zasoby</h4>
+        <ul>
+          <li><a href="oferta.html#ebook">E-book LinkedIn</a></li>
+          <li><a href="oferta.html#kurs">Kurs Pion</a></li>
+          <li><a href="kontakt.html#newsletter">Newsletter</a></li>
+          <li><a href="#">Case studies</a></li>
+          <li><a href="#">Prasa &amp; press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:hi@dorisinsocialmedia.com">hi@dorisinsocialmedia.com</a></li>
+          <li><a href="tel:+48500000000">+48 500 000 000</a></li>
+          <li>Warszawa · PL</li>
+          <li><a href="#">Regulamin</a></li>
+          <li><a href="#">Polityka prywatności</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footermark">doris</div>
+    <div class="colophon">
+      <span>© 2026 Doris Maklewska · All rights reserved</span>
+      <span>Zaprojektowane z troską w Warszawie · v2026.05</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

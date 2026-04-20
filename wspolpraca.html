@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dla kogo / Współpraca — Doris Maklewska</title>
+<meta name="description" content="Z kim pracuję i jak wygląda ten proces. Dla ekspertek, liderów, founderek i zespołów, które chcą być zapamiętane." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.page-hero{
+  padding: clamp(40px, 5vw, 80px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero .breadcrumb{
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--teal); font-weight: 600;
+  margin-bottom: 16px;
+}
+.page-hero h1{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(56px, 9vw, 148px);
+  line-height: 0.9;
+  letter-spacing: -.035em;
+  margin: 0;
+  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 1;
+  max-width: 15ch;
+}
+.page-hero h1 em{ font-style: italic; color: var(--pink);}
+.page-hero h1 u{
+  text-decoration: none;
+  background: var(--amber);
+  padding: 0 .12em;
+  border-radius: 10px;
+}
+.page-hero .lead{
+  font-family: var(--f-serif);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 350;
+  line-height: 1.35;
+  max-width: 42ch;
+  margin: 32px 0 0;
+  font-variation-settings:"opsz" 120, "SOFT" 50;
+  color: var(--plum-soft);
+}
+
+/* personas */
+.personas{ border-top: 2px solid var(--plum); background: var(--paper);}
+.persona-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 32px);
+}
+.persona{
+  position: relative;
+  padding: 36px;
+  border-radius: 24px;
+  border: 2px solid var(--plum);
+  box-shadow: 10px 10px 0 var(--plum);
+  display:flex; flex-direction:column; gap: 16px;
+  min-height: 440px;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+}
+.persona:hover{ transform: translate(-3px,-3px); box-shadow: 14px 14px 0 var(--plum);}
+
+.persona .tag{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.persona h3{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(28px, 2.8vw, 44px);
+  line-height: 1.02;
+  margin: 0;
+  letter-spacing: -.02em;
+  font-variation-settings:"opsz" 144, "SOFT" 40, "WONK" 1;
+}
+.persona h3 em{ font-style: italic;}
+.persona p{
+  font-size: 15.5px; line-height: 1.6;
+  margin: 0;
+}
+.persona ul{
+  list-style: none; padding: 0; margin: 12px 0 0;
+  display:flex; flex-direction: column; gap: 8px;
+}
+.persona ul li{
+  padding-left: 24px;
+  position: relative;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.persona ul li::before{
+  content: "→"; position: absolute; left: 0; font-weight: 700;
+}
+.persona .glyph{
+  position:absolute; right: -14px; bottom: -40px;
+  font-family: var(--f-serif); font-style: italic;
+  font-size: 220px; line-height: 1;
+  pointer-events:none;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  opacity: .1;
+}
+
+.persona.p1{ background: var(--amber); color: var(--plum);}
+.persona.p1 .tag{ color: var(--pink);}
+.persona.p1 h3 em{ color: var(--pink);}
+.persona.p1 ul li::before{ color: var(--pink);}
+.persona.p1 .glyph{ color: var(--plum);}
+
+.persona.p2{ background: var(--teal); color: var(--paper);}
+.persona.p2 .tag{ color: var(--amber);}
+.persona.p2 h3 em{ color: var(--amber);}
+.persona.p2 ul li::before{ color: var(--amber);}
+.persona.p2 .glyph{ color: var(--paper); opacity: .08;}
+
+.persona.p3{ background: var(--pink); color: var(--paper);}
+.persona.p3 .tag{ color: var(--amber);}
+.persona.p3 h3 em{ color: var(--amber);}
+.persona.p3 ul li::before{ color: var(--amber);}
+.persona.p3 .glyph{ color: var(--paper); opacity: .12;}
+
+.persona.p4{ background: var(--plum); color: var(--paper);}
+.persona.p4 .tag{ color: var(--amber);}
+.persona.p4 h3 em{ color: var(--amber);}
+.persona.p4 ul li::before{ color: var(--amber);}
+.persona.p4 .glyph{ color: var(--amber); opacity: .1;}
+
+/* not-for-you */
+.notforyou{ background: var(--plum); color: var(--paper);}
+.notforyou .sec-id{ border-top-color: var(--pink); color: var(--pink);}
+.notforyou .sec-id b{ color: var(--pink);}
+.notforyou .sec-title{ color: var(--paper);}
+.notforyou .sec-title em{ color: var(--pink);}
+
+.nfy-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+}
+.nfy{
+  padding: 26px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.nfy .x{
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--pink); color: var(--paper);
+  display:grid; place-items:center;
+  font-weight: 700; font-size: 18px;
+  margin-bottom: 6px;
+}
+.nfy h4{
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(20px, 1.8vw, 26px);
+  margin: 0;
+  letter-spacing: -.01em;
+  font-variation-settings:"opsz" 120, "SOFT" 40, "WONK" 1;
+}
+.nfy p{ font-size: 14.5px; line-height: 1.55; opacity: .85; margin: 0;}
+
+/* process */
+.process{ background: var(--amber);}
+.process .sec-id{ border-top-color: var(--plum); color: var(--plum);}
+.process .sec-id b{ color: var(--plum);}
+.process .sec-title em{ color: var(--pink);}
+
+.steps{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  counter-reset: step;
+}
+.step{
+  position: relative;
+  padding: 28px 24px 28px;
+  border-radius: 18px;
+  background: var(--paper-2);
+  border: 2px solid var(--plum);
+  display:flex; flex-direction: column; gap: 12px;
+  min-height: 280px;
+}
+.step .n{
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: .22em;
+  color: var(--pink);
+  font-weight: 700;
+}
+.step h4{
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(22px, 2vw, 30px);
+  margin: 0;
+  letter-spacing: -.01em;
+  font-variation-settings:"opsz" 120, "SOFT" 40, "WONK" 1;
+}
+.step h4 em{ font-style: italic; color: var(--pink);}
+.step p{ font-size: 14.5px; line-height: 1.55; color: var(--plum-soft); margin: 0;}
+.step .circle{
+  position: absolute;
+  top: -22px; right: -22px;
+  width: 64px; height: 64px;
+  background: var(--pink);
+  color: var(--paper);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 400;
+  border: 3px solid var(--plum);
+}
+.step:nth-child(2) .circle{ background: var(--teal);}
+.step:nth-child(3) .circle{ background: var(--orange);}
+.step:nth-child(4) .circle{ background: var(--plum); color: var(--amber);}
+
+/* case-studies */
+.cases{ background: var(--paper);}
+.case-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 3vw, 32px);
+}
+.case{
+  padding: 32px;
+  border-radius: 20px;
+  background: var(--paper-2);
+  border: 2px solid var(--plum);
+  box-shadow: 8px 8px 0 var(--plum);
+  display:flex; flex-direction: column; gap: 14px;
+}
+.case .who{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 700;
+}
+.case h3{
+  font-family: var(--f-serif);
+  font-weight: 350;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -.015em;
+  font-variation-settings:"opsz" 120, "SOFT" 30, "WONK" 1;
+}
+.case h3 em{ font-style: italic; color: var(--pink);}
+.case .metrics{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+.case .metrics .m{
+  display:flex; flex-direction: column; gap: 2px;
+}
+.case .metrics .v{
+  font-family: var(--f-serif);
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 400;
+  color: var(--pink);
+  font-variation-settings:"opsz" 120, "SOFT" 50;
+  line-height: 1;
+}
+.case .metrics .l{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--plum-soft);
+}
+
+/* FAQ */
+.faq{ background: var(--orange); color: var(--paper);}
+.faq .sec-id,
+.faq .sec-id b{ color: var(--amber); border-top-color: var(--amber);}
+.faq .sec-title{ color: var(--paper);}
+.faq .sec-title em{ color: var(--amber);}
+
+.faq-list{
+  display:flex; flex-direction: column; gap: 12px;
+  max-width: 880px;
+}
+.faq-item{
+  border-radius: 18px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  padding: 0;
+  overflow: hidden;
+}
+.faq-item summary{
+  cursor: pointer;
+  list-style: none;
+  padding: 20px 24px;
+  display:flex; align-items: center; justify-content: space-between;
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(18px, 1.6vw, 24px);
+  letter-spacing: -.01em;
+  font-variation-settings:"opsz" 120, "SOFT" 40, "WONK" 1;
+}
+.faq-item summary::-webkit-details-marker{ display: none;}
+.faq-item summary::after{
+  content: "+";
+  font-size: 28px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--plum);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  margin-left: 16px;
+  transition: transform .2s;
+  font-weight: 400;
+}
+.faq-item[open] summary::after{ transform: rotate(45deg);}
+.faq-item .body{
+  padding: 0 24px 20px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  max-width: 58ch;
+  color: color-mix(in srgb, var(--paper) 92%, transparent);
+}
+
+@media (max-width: 980px){
+  .persona-grid{ grid-template-columns: 1fr;}
+  .nfy-grid{ grid-template-columns: 1fr;}
+  .steps{ grid-template-columns: repeat(2,1fr);}
+  .case-grid{ grid-template-columns: 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="dot"></span> Przyjmuję nowe projekty — jesień 2026</div>
+    <div>
+      <span>Warszawa, PL</span>
+      <span class="sep">//</span>
+      <span id="clock">—</span>
+      <span class="sep">//</span>
+      <span>PL / EN</span>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      doris<b>*</b>in social media <sup>est. 2015</sup>
+    </a>
+    <nav>
+      <ul>
+        <li><a class="navlink" href="index.html">Start</a></li>
+        <li><a class="navlink" href="o-mnie.html">O mnie</a></li>
+        <li><a class="navlink" href="oferta.html">Oferta</a></li>
+        <li><a class="navlink" href="wspolpraca.html">Dla kogo</a></li>
+        <li><a class="navlink" href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a href="kontakt.html" class="cta">
+      Pogadajmy <span class="arrow">↗</span>
+    </a>
+  </div>
+</header>
+
+<!-- ========== page hero ========== -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb">Start → <b style="color:var(--plum)">Dla kogo</b></div>
+    <h1 data-reveal>Pracujemy <em>razem</em>, kiedy to ma <u>sens</u>.</h1>
+    <p class="lead" data-reveal style="--delay:120ms">
+      Nie jestem dla każdego — i to dobrze. Poniżej opisuję, z kim lubię pracować,
+      kiedy współpraca ma szansę zadziałać, a kiedy lepiej odpuścić. Uczciwie.
+    </p>
+  </div>
+</section>
+
+<!-- ========== personas ========== -->
+<section class="section personas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ / Z kim pracuję</b><span>Cztery typy osób, które zostają dłużej</span></div>
+      <h2 class="sec-title" data-reveal>Cztery <em>osoby</em>. Jedna <u>potrzeba</u>.</h2>
+    </div>
+
+    <div class="persona-grid">
+      <div class="persona p1" data-reveal>
+        <span class="glyph">E</span>
+        <span class="tag">01 — Ekspertka solo</span>
+        <h3>Ekspertka <em>z rozpędu</em>.</h3>
+        <p>
+          Doradczyni, prawniczka, coach, konsultantka. Masz portfolio klientów z polecenia,
+          ale czujesz, że „tak nie można dalej”. Chcesz zbudować rozpoznawalność, która pracuje za Ciebie.
+        </p>
+        <ul>
+          <li>Robisz to dobrze, ale świat tego nie wie</li>
+          <li>Twój LinkedIn pamięta 2018 rok</li>
+          <li>Masz pomysły, nie masz planu</li>
+        </ul>
+      </div>
+
+      <div class="persona p2" data-reveal style="--delay:100ms">
+        <span class="glyph">F</span>
+        <span class="tag">02 — Founderka / CEO</span>
+        <h3>Prowadzisz <em>firmę</em>, chcesz być twarzą.</h3>
+        <p>
+          Wiesz, że Twoja marka osobista sprzedaje lepiej niż firmowy fanpage.
+          Nie masz czasu na eksperymenty — potrzebujesz systemu, który działa w tle,
+          kiedy Ty rozwijasz produkt.
+        </p>
+        <ul>
+          <li>Masz zespół — chcesz, żeby też pisał</li>
+          <li>Chcesz „mówić do rynku”, nie „postować”</li>
+          <li>Cenisz sobie strukturę i zwrot z czasu</li>
+        </ul>
+      </div>
+
+      <div class="persona p3" data-reveal style="--delay:200ms">
+        <span class="glyph">L</span>
+        <span class="tag">03 — Liderka / zarząd</span>
+        <h3>Jesteś w zarządzie <em>i musisz</em> zacząć mówić.</h3>
+        <p>
+          Bo rynek tego wymaga, bo zarząd tak zdecydował, bo to po prostu działa.
+          Chcesz brzmieć jak Ty, nie jak PR agencja. Chcesz mieć do tego proces, nie improwizację.
+        </p>
+        <ul>
+          <li>Executive presence online, nie „personal brand”</li>
+          <li>Pracujemy z oglądem, nie wbrew kulturze firmy</li>
+          <li>Raz na tydzień, profesjonalnie, bez ściemy</li>
+        </ul>
+      </div>
+
+      <div class="persona p4" data-reveal style="--delay:280ms">
+        <span class="glyph">T</span>
+        <span class="tag">04 — Zespół w firmie</span>
+        <h3>Zespół sales / HR / <em>marketingu</em>.</h3>
+        <p>
+          Szkolenie z LinkedIna, które nie nudzi po 30 minutach. Employer branding, który
+          brzmi jak ludzie, nie jak rekrutacja. Albo video dla ekspertów, którzy nie chcą być „TikTokerami”.
+        </p>
+        <ul>
+          <li>6 – 60 osób, on-site lub zdalnie</li>
+          <li>Warsztat = wychodzicie z gotowymi materiałami</li>
+          <li>Follow-up po miesiącu, bo jedno szkolenie = 0 nawyków</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== marquee ========== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>uczciwie <span class="star">✦</span> konkretnie <span class="star">✦</span> z humorem <span class="star">✦</span> bez ściemy <span class="star">✦</span> uczciwie <span class="star">✦</span> konkretnie <span class="star">✦</span> z humorem <span class="star">✦</span> bez ściemy <span class="star">✦</span></span>
+    <span>uczciwie <span class="star">✦</span> konkretnie <span class="star">✦</span> z humorem <span class="star">✦</span> bez ściemy <span class="star">✦</span> uczciwie <span class="star">✦</span> konkretnie <span class="star">✦</span> z humorem <span class="star">✦</span> bez ściemy <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ========== not for you ========== -->
+<section class="section notforyou">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ / Szczera rozmowa</b><span>Kiedy lepiej odpuścić — i komu nie wcisnę współpracy</span></div>
+      <h2 class="sec-title" data-reveal>Nie pracuję z Tobą, jeśli<em>…</em></h2>
+    </div>
+
+    <div class="nfy-grid">
+      <div class="nfy" data-reveal>
+        <div class="x">1</div>
+        <h4>Chcesz „tylko zasięgi”.</h4>
+        <p>Nie specjalizuję się w viralu. Tworzę marki, które sprzedają — a to inna konkurencja i inny zestaw narzędzi. Nie będę Ci obiecywać 100k followersów w miesiąc.</p>
+      </div>
+      <div class="nfy" data-reveal style="--delay:100ms">
+        <div class="x">2</div>
+        <h4>Chcesz, żebym <em>pisała za Ciebie</em>.</h4>
+        <p>Nie jestem ghostwriterką. Uczę Ciebie pisać, montować, nagrywać. Jeśli szukasz kogoś, kto zrobi Twój LinkedIn „z automatu” — poleć mi zaufane osoby, do których wyślę.</p>
+      </div>
+      <div class="nfy" data-reveal style="--delay:200ms">
+        <div class="x">3</div>
+        <h4>Nie masz <em>czasu</em> na robotę.</h4>
+        <p>Mentoring 1:1 to ok. 3–5 godzin Twojej pracy tygodniowo między sesjami. Jeśli nie masz tej przestrzeni — zaczniemy od konsultacji, nie od programu. Uczciwie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== process ========== -->
+<section class="section process" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ / Proces</b><span>Jak wygląda współpraca, krok po kroku</span></div>
+      <h2 class="sec-title" data-reveal>Jak to <em>robimy</em>.</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step" data-reveal>
+        <span class="circle">01</span>
+        <span class="n">Krok 1 — 15 min</span>
+        <h4>Rozmowa <em>wstępna</em>.</h4>
+        <p>Bezpłatnie, 15 minut, online. Opowiadasz co chcesz osiągnąć. Ja mówię, czy i jak mogę Ci pomóc. Bez sprzedażowej paplaniny.</p>
+      </div>
+      <div class="step" data-reveal style="--delay:100ms">
+        <span class="circle">02</span>
+        <span class="n">Krok 2 — 3 dni</span>
+        <h4>Propozycja <em>skrojona</em>.</h4>
+        <p>W ciągu 3 dni wysyłam Ci konkretną propozycję: format, zakres, cena, kalendarz. Jeśli potrzebujesz call follow-up — wpadamy na 30 minut.</p>
+      </div>
+      <div class="step" data-reveal style="--delay:200ms">
+        <span class="circle">03</span>
+        <span class="n">Krok 3 — start</span>
+        <h4>Kick-off &amp; <em>audyt</em>.</h4>
+        <p>Zaczynamy od audytu Twoich kanałów i rozmowy o strategii. Tu wychodzi „wszystko”, co chcesz przepracować — łącznie z pytaniem „co robię źle?”.</p>
+      </div>
+      <div class="step" data-reveal style="--delay:300ms">
+        <span class="circle">04</span>
+        <span class="n">Krok 4 — robota</span>
+        <h4>Regularna <em>praca</em>.</h4>
+        <p>Sesje co dwa tygodnie, Voxer między nimi, analiza Twoich publikacji. Ty piszesz i publikujesz. Ja pilnuję, żebyś nie ugrzęzła w swojej głowie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== case studies ========== -->
+<section class="section cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ / Case studies</b><span>Konkretne liczby z konkretnej pracy</span></div>
+      <h2 class="sec-title" data-reveal>Nie <em>storytelling</em>. Liczby.</h2>
+    </div>
+
+    <div class="case-grid">
+      <div class="case" data-reveal>
+        <span class="who">CEO · butikowa agencja HR · 9 osób</span>
+        <h3>Ekspertka HR → „twarz branży” w <em>6 miesięcy</em>.</h3>
+        <p>Zaczęłyśmy od audytu i strategii. Sześć miesięcy pracy, regularna publikacja 3x/tydzień. Efekt: leady z LinkedIn zastąpiły 60% starych kanałów pozyskania.</p>
+        <div class="metrics">
+          <div class="m"><span class="v">×2.4</span><span class="l">Przychód Q/Q</span></div>
+          <div class="m"><span class="v">+312%</span><span class="l">Follows LinkedIn</span></div>
+          <div class="m"><span class="v">42</span><span class="l">Nowe leady</span></div>
+        </div>
+      </div>
+
+      <div class="case" data-reveal style="--delay:120ms">
+        <span class="who">HR Director · ABB Poland</span>
+        <h3>Zespół HR, który zaczął mówić <em>głośno</em>.</h3>
+        <p>Warsztat zespołowy z employer brandingu + 3-miesięczny coaching grupowy dla 12 osób. Pokazywaliśmy, jak mówić o firmie po ludzku — bez rekrutacyjnego żargonu.</p>
+        <div class="metrics">
+          <div class="m"><span class="v">+30%</span><span class="l">Liczba aplikacji</span></div>
+          <div class="m"><span class="v">×3</span><span class="l">Zasięg postów HR</span></div>
+          <div class="m"><span class="v">9/10</span><span class="l">Ocena warsztatu</span></div>
+        </div>
+      </div>
+
+      <div class="case" data-reveal style="--delay:200ms">
+        <span class="who">Founder · SaaS B2B · seed stage</span>
+        <h3>Founder, który zaczął <em>sprzedawać</em> sobą.</h3>
+        <p>Mentoring 1:1 przez 6 miesięcy. Zbudowaliśmy narrację opartą na „dlaczego ten produkt ma sens” — nie „jakie ma feature'y”. Treści publikowane na LinkedIn weszły do procesu sprzedaży.</p>
+        <div class="metrics">
+          <div class="m"><span class="v">×11</span><span class="l">ROI programu</span></div>
+          <div class="m"><span class="v">8</span><span class="l">Inbound leadów/mies.</span></div>
+          <div class="m"><span class="v">+18K</span><span class="l">Followers LinkedIn</span></div>
+        </div>
+      </div>
+
+      <div class="case" data-reveal style="--delay:280ms">
+        <span class="who">C-level · Millennium Bank</span>
+        <h3>Szefowa komunikacji → głos <em>liderski</em>.</h3>
+        <p>Konsultacje strategiczne + produkcja video. Nagraliśmy 18 filmów w dwa dni. Polityka komunikacyjna — executive presence bez korpo-marketingowego efektu.</p>
+        <div class="metrics">
+          <div class="m"><span class="v">18</span><span class="l">Filmów / 2 dni</span></div>
+          <div class="m"><span class="v">+480%</span><span class="l">Engagement video</span></div>
+          <div class="m"><span class="v">4</span><span class="l">Zaproszenia do prasy</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="section faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-id"><b>§ / FAQ</b><span>To, o co pytacie najczęściej</span></div>
+      <h2 class="sec-title" data-reveal>Krótko i <em>uczciwie</em>.</h2>
+    </div>
+
+    <div class="faq-list" data-reveal>
+      <details class="faq-item">
+        <summary>Ile trwa zbudowanie marki osobistej?</summary>
+        <div class="body">
+          Pierwsze efekty (ruch, komentarze, zapytania) — 6 do 12 tygodni systematycznej pracy.
+          Realną „markę, którą się rozpoznaje” — 9 do 18 miesięcy. Nie ma tu skrótów.
+          Każdy, kto mówi, że są — sprzedaje Ci nadzieję, nie narzędzie.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Czy współpracujesz z mężczyznami?</summary>
+        <div class="body">
+          Oczywiście — i robię to z przyjemnością. Większość klientów w mentoringu to kobiety,
+          ale szkolenia firmowe i prelekcje prowadzę dla grup mieszanych.
+          Moja „twarz marki” jest kobieca, bo mam takie historie do opowiedzenia. Moja metoda jest dla każdego.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Jak wygląda praca zdalnie vs stacjonarnie?</summary>
+        <div class="body">
+          Większość pracy 1:1 odbywa się online (Google Meet) — tak jest wygodniej dla obu stron.
+          Szkolenia firmowe lubię robić on-site, bo zespół pracuje lepiej, kiedy widzi się na żywo.
+          Produkcje video — zawsze u mnie w studio w Warszawie albo u Ciebie, jeśli dojazd ma sens.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Czy pracujesz w angielskim?</summary>
+        <div class="body">
+          Tak — mentoring, szkolenia i prelekcje prowadzę w PL i EN. Pracuję z klientami
+          z Niemiec, Szwajcarii, UK i Skandynawii. Moja strategia marki osobistej się tłumaczy,
+          tylko odbiorca się zmienia.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Czy mogę zrezygnować w trakcie programu?</summary>
+        <div class="body">
+          Mentoring 1:1 sprzedaję w pakiecie 3-miesięcznym. Jeżeli po 2 sesjach czujesz,
+          że „to nie to” — zwracam Ci 50% kosztów, bez pytań. Zdarza się bardzo rzadko,
+          ale wolę, żeby ta opcja była jasna.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Jaka jest Twoja dostępność?</summary>
+        <div class="body">
+          Mentoring 1:1 — 6 miejsc na kwartał. Szkolenia firmowe — zwykle 4–6 tygodni
+          wyprzedzenia. Prelekcje — w zależności od kalendarza. Konsultacje strategiczne
+          — często są wolne terminy w ciągu 2 tygodni.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA big ========== -->
+<section class="cta-big">
+  <div class="wrap">
+    <h2 data-reveal>To jak — <em>zaczynamy</em> od 15 minut?</h2>
+    <div class="row2">
+      <div data-reveal style="--delay:120ms">
+        <p>Najprostszy start: zostaw e-mail. Odezwę się w 48h z terminem krótkiej rozmowy.
+           Bez prezentacji. Tylko krótkie „cześć” i konkret — czy i jak mogę Ci pomóc.</p>
+        <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Dzięki! Odezwę się.';">
+          <input type="email" required placeholder="twój@e-mail.pl" aria-label="Email"/>
+          <button type="submit">Umów 15 min</button>
+        </form>
+      </div>
+      <div class="tel" data-reveal style="--delay:200ms">
+        <span class="l">Wolisz telefon?</span>
+        <span class="v"><a href="tel:+48500000000">+48 500 000 000</a></span>
+        <span class="l">Albo napisz: <a href="mailto:hi@dorisinsocialmedia.com">hi@dorisinsocialmedia.com</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">doris<em>*</em><br>in social media</div>
+        <p class="foot-about">Studio marki osobistej. Mentoring, strategia i video dla ekspertów w PL i Europie. Bez szablonów.</p>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn">Li</a>
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="TikTok">Tk</a>
+          <a href="#" aria-label="YouTube">Yt</a>
+          <a href="#" aria-label="Substack">Sb</a>
+        </div>
+      </div>
+      <div>
+        <h4>Nawigacja</h4>
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="o-mnie.html">O mnie</a></li>
+          <li><a href="oferta.html">Oferta</a></li>
+          <li><a href="wspolpraca.html">Dla kogo</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Zasoby</h4>
+        <ul>
+          <li><a href="oferta.html#ebook">E-book LinkedIn</a></li>
+          <li><a href="oferta.html#kurs">Kurs Pion</a></li>
+          <li><a href="kontakt.html#newsletter">Newsletter</a></li>
+          <li><a href="#">Case studies</a></li>
+          <li><a href="#">Prasa &amp; press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:hi@dorisinsocialmedia.com">hi@dorisinsocialmedia.com</a></li>
+          <li><a href="tel:+48500000000">+48 500 000 000</a></li>
+          <li>Warszawa · PL</li>
+          <li><a href="#">Regulamin</a></li>
+          <li><a href="#">Polityka prywatności</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footermark">doris</div>
+    <div class="colophon">
+      <span>© 2026 Doris Maklewska · All rights reserved</span>
+      <span>Zaprojektowane z troską w Warszawie · v2026.05</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
